@@ -1,0 +1,194 @@
+[
+ {
+  "id": 100,
+  "data": "2026-02-19",
+  "modificado": "2026-02-19T12:00:00",
+  "link": "#exemplo-100",
+  "titulo": "Câmara realiza 1ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 1ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 001/2026, de autoria do vereador Carla Modelo, que concede título de cidadão honorário a voluntário da Defesa Civil. A proposta segue para as comissões.</p><p>Em seguida, Dr. Bento cobrou a reforma do posto de saúde do bairro.</p>"
+ },
+ {
+  "id": 101,
+  "data": "2026-02-26",
+  "modificado": "2026-02-26T12:00:00",
+  "link": "#exemplo-101",
+  "titulo": "Câmara realiza 2ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 2ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 002/2026, de autoria do vereador Ana Exemplo, que institui a feira de artesanato no centro. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 003/2026, de autoria do vereador Pr. Davi, que cria o programa de hortas comunitárias nas escolas. A proposta segue para as comissões.</p><p>O vereador Gui do Bairro cobrou a reforma do posto de saúde do bairro.</p><p>Em seguida, Ana Exemplo pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 102,
+  "data": "2026-03-05",
+  "modificado": "2026-03-05T12:00:00",
+  "link": "#exemplo-102",
+  "titulo": "Câmara realiza 3ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 3ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 004/2026, de autoria do vereador Dr. Bento, que cria o castramóvel municipal para cães e gatos. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 005/2026, de autoria do vereador Ana Exemplo, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>O Projeto de Lei nº 002/2026 foi rejeitado em votação nominal.</p><p>Os vereadores aprovaram o PL 1/2026, que concede título de cidadão honorário a voluntário da Defesa Civil.</p><p>Na tribuna, Elisa Fictícia pediu providências sobre buracos na estrada principal.</p>"
+ },
+ {
+  "id": 103,
+  "data": "2026-03-19",
+  "modificado": "2026-03-19T12:00:00",
+  "link": "#exemplo-103",
+  "titulo": "Câmara realiza 4ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 4ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 006/2026, de autoria do vereador Elisa Fictícia, que institui a feira de artesanato no centro. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 3/2026, que cria o programa de hortas comunitárias nas escolas.</p><p>Os vereadores aprovaram o PL 5/2026, que reforça a iluminação pública nos pontos de ônibus.</p><p>Em seguida, Dr. Bento cobrou a reforma do posto de saúde do bairro.</p><p>Em seguida, Elisa Fictícia cobrou a reforma do posto de saúde do bairro.</p>"
+ },
+ {
+  "id": 104,
+  "data": "2026-04-02",
+  "modificado": "2026-04-02T12:00:00",
+  "link": "#exemplo-104",
+  "titulo": "Câmara realiza 5ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 5ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 007/2026, de autoria do vereador Professora Helena, que cria o cadastro de pessoas com deficiência para transporte adaptado. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 6/2026, que institui a feira de artesanato no centro.</p><p>O Projeto de Lei nº 004/2026 foi rejeitado em votação nominal.</p><p>O vereador Elisa Fictícia pediu reforço da guarda municipal nas praças.</p><p>O vereador Dr. Bento cobrou a reforma do posto de saúde do bairro.</p>"
+ },
+ {
+  "id": 105,
+  "data": "2026-04-16",
+  "modificado": "2026-04-16T12:00:00",
+  "link": "#exemplo-105",
+  "titulo": "Câmara realiza 6ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 6ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 008/2026, de autoria do vereador Professora Helena, que cria o programa de coleta seletiva com catadores. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 7/2026, que cria o cadastro de pessoas com deficiência para transporte adaptado.</p><p>Em seguida, Dr. Bento pediu mais ônibus no horário de pico.</p><p>Também foi aprovado o Projeto de Lei Complementar nº 001/2026, de autoria do Poder Executivo, que altera o Código Tributário e o ISS.</p>"
+ },
+ {
+  "id": 106,
+  "data": "2026-04-23",
+  "modificado": "2026-04-23T12:00:00",
+  "link": "#exemplo-106",
+  "titulo": "Câmara realiza 7ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 7ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 009/2026, de autoria do vereador Carla Modelo, que amplia o horário das creches municipais. A proposta segue para as comissões.</p><p>O Projeto de Lei nº 008/2026 foi rejeitado em votação nominal.</p><p>Na tribuna, Fábio Simulado pediu reforço da guarda municipal nas praças.</p>"
+ },
+ {
+  "id": 107,
+  "data": "2026-04-30",
+  "modificado": "2026-04-30T12:00:00",
+  "link": "#exemplo-107",
+  "titulo": "Câmara realiza 8ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 8ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 010/2026, de autoria do vereador Professora Helena, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 011/2026, de autoria do vereador Professora Helena, que institui a semana de vacinação nos postos de saúde. A proposta segue para as comissões.</p><p>Em seguida, Professora Helena cobrou a reforma do posto de saúde do bairro.</p><p>O vereador Fábio Simulado pediu reforço da guarda municipal nas praças.</p>"
+ },
+ {
+  "id": 108,
+  "data": "2026-05-14",
+  "modificado": "2026-05-14T12:00:00",
+  "link": "#exemplo-108",
+  "titulo": "Câmara realiza 9ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 9ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 012/2026, de autoria do vereador Professora Helena, que determina a pavimentação e drenagem de ruas em áreas de risco. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 10/2026, que reforça a iluminação pública nos pontos de ônibus.</p><p>Os vereadores aprovaram o PL 11/2026, que institui a semana de vacinação nos postos de saúde.</p><p>Na tribuna, Dr. Bento cobrou a reforma do posto de saúde do bairro.</p>"
+ },
+ {
+  "id": 109,
+  "data": "2026-05-21",
+  "modificado": "2026-05-21T12:00:00",
+  "link": "#exemplo-109",
+  "titulo": "Câmara realiza 10ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 10ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 013/2026, de autoria do vereador Carla Modelo, que dá nome de rua a antiga moradora do bairro. A proposta segue para as comissões.</p><p>Na tribuna, Gui do Bairro cobrou a reforma do posto de saúde do bairro.</p><p>O vereador Professora Helena pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 110,
+  "data": "2026-05-28",
+  "modificado": "2026-05-28T12:00:00",
+  "link": "#exemplo-110",
+  "titulo": "Câmara realiza 11ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 11ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 014/2026, de autoria do vereador Elisa Fictícia, que regulamenta o uso de bicicletas elétricas nas vias urbanas. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 015/2026, de autoria do vereador Gui do Bairro, que institui a feira de artesanato no centro. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 13/2026, que dá nome de rua a antiga moradora do bairro.</p><p>O vereador Gui do Bairro cobrou a reforma do posto de saúde do bairro.</p><p>O vereador Dr. Bento pediu providências sobre buracos na estrada principal.</p>"
+ },
+ {
+  "id": 111,
+  "data": "2026-06-04",
+  "modificado": "2026-06-04T12:00:00",
+  "link": "#exemplo-111",
+  "titulo": "Câmara realiza 12ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 12ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 016/2026, de autoria do vereador Pr. Davi, que cria o programa de hortas comunitárias nas escolas. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 017/2026, de autoria do vereador Professora Helena, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>O vereador Elisa Fictícia pediu mais ônibus no horário de pico.</p><p>Em seguida, Ana Exemplo denunciou falta de professores em uma escola municipal.</p><p>Também foi aprovado o Projeto de Lei Complementar nº 002/2026, de autoria do Poder Executivo, que altera o Código Tributário e o ISS.</p>"
+ },
+ {
+  "id": 112,
+  "data": "2026-06-18",
+  "modificado": "2026-06-18T12:00:00",
+  "link": "#exemplo-112",
+  "titulo": "Câmara realiza 13ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 13ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 018/2026, de autoria do vereador Fábio Simulado, que regulamenta o uso de bicicletas elétricas nas vias urbanas. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 019/2026, de autoria do vereador Ana Exemplo, que amplia o horário das creches municipais. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 16/2026, que cria o programa de hortas comunitárias nas escolas.</p><p>Os vereadores aprovaram o PL 15/2026, que institui a feira de artesanato no centro.</p><p>O vereador Gui do Bairro cobrou a reforma do posto de saúde do bairro.</p><p>O vereador Ana Exemplo pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 113,
+  "data": "2026-06-25",
+  "modificado": "2026-06-25T12:00:00",
+  "link": "#exemplo-113",
+  "titulo": "Câmara realiza 14ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 14ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 020/2026, de autoria do vereador Fábio Simulado, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>Em seguida, Ana Exemplo pediu providências sobre buracos na estrada principal.</p>"
+ },
+ {
+  "id": 114,
+  "data": "2026-08-06",
+  "modificado": "2026-08-06T12:00:00",
+  "link": "#exemplo-114",
+  "titulo": "Câmara realiza 15ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 15ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 021/2026, de autoria do vereador Fábio Simulado, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>Em seguida, Pr. Davi pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 115,
+  "data": "2026-08-13",
+  "modificado": "2026-08-13T12:00:00",
+  "link": "#exemplo-115",
+  "titulo": "Câmara realiza 16ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 16ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 022/2026, de autoria do vereador Elisa Fictícia, que cria o programa de coleta seletiva com catadores. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 023/2026, de autoria do vereador Fábio Simulado, que amplia o horário das creches municipais. A proposta segue para as comissões.</p><p>Na tribuna, Professora Helena pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 116,
+  "data": "2026-08-20",
+  "modificado": "2026-08-20T12:00:00",
+  "link": "#exemplo-116",
+  "titulo": "Câmara realiza 17ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 17ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 024/2026, de autoria do vereador Dr. Bento, que regulamenta o uso de bicicletas elétricas nas vias urbanas. A proposta segue para as comissões.</p><p>Na tribuna, Fábio Simulado elogiou a festa cultural do fim de semana.</p><p>Em seguida, Professora Helena pediu providências sobre buracos na estrada principal.</p><p>Em seguida, Carla Modelo cobrou a reforma do posto de saúde do bairro.</p>"
+ },
+ {
+  "id": 117,
+  "data": "2026-08-27",
+  "modificado": "2026-08-27T12:00:00",
+  "link": "#exemplo-117",
+  "titulo": "Câmara realiza 18ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 18ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 025/2026, de autoria do vereador Fábio Simulado, que regulamenta o uso de bicicletas elétricas nas vias urbanas. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 026/2026, de autoria do vereador Ana Exemplo, que institui a feira de artesanato no centro. A proposta segue para as comissões.</p><p>O Projeto de Lei nº 024/2026 foi rejeitado em votação nominal.</p><p>O vereador Elisa Fictícia denunciou falta de professores em uma escola municipal.</p><p>O vereador Professora Helena cobrou a limpeza de um rio após as chuvas.</p><p>Em seguida, Carla Modelo elogiou a festa cultural do fim de semana.</p><p>Também foi aprovado o Projeto de Lei Complementar nº 003/2026, de autoria do Poder Executivo, que altera o Código Tributário e o ISS.</p>"
+ },
+ {
+  "id": 118,
+  "data": "2026-09-10",
+  "modificado": "2026-09-10T12:00:00",
+  "link": "#exemplo-118",
+  "titulo": "Câmara realiza 19ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 19ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 027/2026, de autoria do vereador Pr. Davi, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>Em seguida, Gui do Bairro elogiou a festa cultural do fim de semana.</p>"
+ },
+ {
+  "id": 119,
+  "data": "2026-09-17",
+  "modificado": "2026-09-17T12:00:00",
+  "link": "#exemplo-119",
+  "titulo": "Câmara realiza 20ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 20ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 028/2026, de autoria do vereador Professora Helena, que cria o programa de coleta seletiva com catadores. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 9/2026, que amplia o horário das creches municipais.</p><p>Os vereadores aprovaram o PL 27/2026, que reforça a iluminação pública nos pontos de ônibus.</p><p>Na tribuna, Fábio Simulado elogiou a festa cultural do fim de semana.</p>"
+ },
+ {
+  "id": 120,
+  "data": "2026-10-01",
+  "modificado": "2026-10-01T12:00:00",
+  "link": "#exemplo-120",
+  "titulo": "Câmara realiza 21ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 21ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 029/2026, de autoria do vereador Fábio Simulado, que institui a semana de vacinação nos postos de saúde. A proposta segue para as comissões.</p><p>Na tribuna, Pr. Davi pediu providências sobre buracos na estrada principal.</p>"
+ },
+ {
+  "id": 121,
+  "data": "2026-10-08",
+  "modificado": "2026-10-08T12:00:00",
+  "link": "#exemplo-121",
+  "titulo": "Câmara realiza 22ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 22ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 030/2026, de autoria do vereador Professora Helena, que reforça a iluminação pública nos pontos de ônibus. A proposta segue para as comissões.</p><p>O Projeto de Lei nº 012/2026 foi rejeitado em votação nominal.</p><p>Os vereadores aprovaram o PL 22/2026, que cria o programa de coleta seletiva com catadores.</p><p>O vereador Dr. Bento pediu mais ônibus no horário de pico.</p><p>Em seguida, Gui do Bairro elogiou a festa cultural do fim de semana.</p><p>O vereador Fábio Simulado pediu mais ônibus no horário de pico.</p>"
+ },
+ {
+  "id": 122,
+  "data": "2026-10-15",
+  "modificado": "2026-10-15T12:00:00",
+  "link": "#exemplo-122",
+  "titulo": "Câmara realiza 23ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 23ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 031/2026, de autoria do vereador Fábio Simulado, que institui a semana de vacinação nos postos de saúde. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 23/2026, que amplia o horário das creches municipais.</p><p>O Projeto de Lei nº 025/2026 foi rejeitado em votação nominal.</p><p>O vereador Carla Modelo pediu providências sobre buracos na estrada principal.</p><p>Em seguida, Dr. Bento pediu mais ônibus no horário de pico.</p><p>Em seguida, Gui do Bairro pediu providências sobre buracos na estrada principal.</p>"
+ },
+ {
+  "id": 123,
+  "data": "2026-10-29",
+  "modificado": "2026-10-29T12:00:00",
+  "link": "#exemplo-123",
+  "titulo": "Câmara realiza 24ª Sessão Ordinária de 2026",
+  "html": "<p>A Câmara Municipal realizou, nesta terça-feira, a 24ª Sessão Ordinária do ano.</p><p>Foi lido o Projeto de Lei nº 032/2026, de autoria do vereador Professora Helena, que cria o cadastro de pessoas com deficiência para transporte adaptado. A proposta segue para as comissões.</p><p>Foi lido o Projeto de Lei nº 033/2026, de autoria do vereador Fábio Simulado, que regulamenta o uso de bicicletas elétricas nas vias urbanas. A proposta segue para as comissões.</p><p>Os vereadores aprovaram o PL 29/2026, que institui a semana de vacinação nos postos de saúde.</p><p>Os vereadores aprovaram o PL 18/2026, que regulamenta o uso de bicicletas elétricas nas vias urbanas.</p><p>O vereador Dr. Bento pediu mais ônibus no horário de pico.</p><p>O vereador Elisa Fictícia elogiou a festa cultural do fim de semana.</p><p>O vereador Fábio Simulado cobrou a reforma do posto de saúde do bairro.</p><p>Também foi aprovado o Projeto de Lei Complementar nº 004/2026, de autoria do Poder Executivo, que altera o Código Tributário e o ISS.</p>"
+ }
+]

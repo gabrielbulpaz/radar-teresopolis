@@ -1,0 +1,10 @@
+{
+  "_nota": "Cadastro FICTÍCIO, só para testes e demonstração.",
+  "fonte": "exemplo",
+  "vereadores": [
+    {"slug": "ana-exemplo", "nome": "Ana Exemplo", "partido": "Partido A", "cargo": "Presidente", "url": "#", "apelidos": ["Ana Exemplo", "Vereadora Ana"]},
+    {"slug": "dr-bento", "nome": "Dr. Bento Teste", "partido": "Partido B", "cargo": "", "url": "#", "apelidos": ["Dr. Bento", "Bento Teste"]},
+    {"slug": "carla-modelo", "nome": "Carla Modelo", "partido": "Partido C", "cargo": "", "url": "#", "apelidos": ["Carla Modelo"]},
+    {"slug": "pr-davi", "nome": "Pr. Davi Amostra", "partido": "Partido A", "cargo": "", "url": "#", "apelidos": ["Pr. Davi", "Davi Amostra"]}
+  ]
+}

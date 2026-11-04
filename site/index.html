@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar da Câmara de Teresópolis</title>
+<meta name="description" content="Acompanhe o que cada vereador de Teresópolis apresenta, vota e discute na Câmara Municipal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --neblina:#EEF2F1; --papel:#FFFFFF; --granito:#1F2A30; --pedra:#5B6B73;
+  --mata:#2F5D50; --mata-clara:#DCE8E3; --linha:#D3DCDA; --sobre-mata:#F2F7F5;
+  --ok:#2E7D4F; --ok-bg:#E1F0E6; --nao:#A8322F; --nao-bg:#F6E1DF;
+  --espera:#8A6417; --espera-bg:#F3EAD3; --neutro:#7D8B90; --neutro-bg:#E6EBEC;
+  --estrela:#C28A12; --cabecalho:#2F5D50; --raio:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --neblina:#141B1E; --papel:#1C2529; --granito:#E4ECEA; --pedra:#9AABB1;
+    --mata:#7FB8A4; --mata-clara:#23362F; --linha:#2E3B40; --sobre-mata:#10201A;
+    --ok:#7CCB9A; --ok-bg:#1F3628; --nao:#F09A93; --nao-bg:#3D2321;
+    --espera:#E3BE6E; --espera-bg:#3A311C; --neutro:#8C9BA0; --neutro-bg:#263135;
+    --estrela:#F0C35A; --cabecalho:#1E3A32; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--neblina);color:var(--granito);font:17px/1.6 "Atkinson Hyperlegible",system-ui,sans-serif}
+a{color:var(--mata);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--mata);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0;text-wrap:balance}
+button{font:inherit;color:inherit}
+.envolve{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* cabeçalho com a serra */
+header{background:var(--cabecalho);color:var(--sobre-mata);position:relative;overflow:hidden}
+header .envolve{position:relative;z-index:1;padding-block:32px 80px}
+header h1{font-size:clamp(28px,6vw,48px);font-weight:700;letter-spacing:-.02em;max-width:15ch;color:#F2F7F5}
+header p{margin:10px 0 0;max-width:52ch;color:#CFE2DA}
+.serra{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:100px;display:block}
+.serra path{fill:var(--neblina)}
+
+/* navegação + busca */
+nav{position:sticky;top:0;z-index:20;background:var(--neblina);border-bottom:1px solid var(--linha)}
+nav .envolve{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.abas{display:flex;gap:2px;overflow-x:auto;flex:1 1 auto;min-width:0}
+.abas a{padding:14px 12px 11px;text-decoration:none;color:var(--pedra);font-weight:700;white-space:nowrap;border-bottom:3px solid transparent}
+.abas a[aria-current="page"]{color:var(--granito);border-bottom-color:var(--mata)}
+.busca{position:relative;flex:0 1 300px;min-width:0;padding-block:8px}
+.busca input{width:100%}
+.resultados{position:absolute;right:0;top:calc(100% - 4px);width:min(420px,calc(100vw - 32px));max-height:70vh;overflow:auto;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 12px 32px rgba(20,30,35,.18);padding:6px}
+.resultados h4{margin:8px 10px 2px;font-size:13px;color:var(--pedra)}
+.resultados a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--granito)}
+.resultados a small{display:block;color:var(--pedra)}
+.resultados a:hover,.resultados a.ativo{background:var(--mata-clara)}
+.resultados p{margin:10px;color:var(--pedra)}
+@media (max-width:640px){.busca{flex:1 1 100%;padding-top:0}}
+
+input[type=search],select{font:inherit;color:var(--granito);background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:8px 12px}
+
+main{padding-block:28px 64px;min-height:50vh}
+main:focus{outline:none}
+.aviso{background:var(--espera-bg);color:var(--espera);border-radius:var(--raio);padding:12px 16px;margin-bottom:22px}
+.intro{color:var(--pedra);max-width:64ch;margin:0 0 18px}
+h2.secao{font-size:24px;margin:34px 0 12px}
+.vazio{background:var(--papel);border:1px dashed var(--linha);border-radius:var(--raio);padding:22px;color:var(--pedra)}
+.voltar{display:inline-block;margin-bottom:14px}
+
+/* chips (filtros e temas) */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--linha);background:var(--papel);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:15px;color:var(--granito);text-decoration:none;display:inline-flex;gap:6px;align-items:baseline}
+.chip small{color:var(--pedra);font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--mata)}
+.chip[aria-pressed="true"]{background:var(--mata);border-color:var(--mata);color:var(--sobre-mata)}
+.chip[aria-pressed="true"] small{color:var(--sobre-mata)}
+.barra-ferramentas{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:16px}
+.barra-ferramentas label{color:var(--pedra);font-size:15px;display:inline-flex;gap:6px;align-items:center}
+
+/* painel */
+.painel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:8px}
+.cifra{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:14px 16px;text-decoration:none;color:inherit}
+a.cifra:hover{border-color:var(--mata)}
+.cifra b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:34px;line-height:1.05;font-variant-numeric:tabular-nums}
+.cifra span{color:var(--pedra);font-size:15px}
+@media (max-width:700px){.painel{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:16px 18px}
+.dupla{display:grid;grid-template-columns:3fr 2fr;gap:12px}
+@media (max-width:800px){.dupla{grid-template-columns:1fr}}
+.cartao h3{font-size:18px;margin-bottom:4px}
+.cartao .leg{color:var(--pedra);font-size:14px;margin:0 0 10px}
+
+/* gráfico mensal */
+.mensal{overflow-x:auto;padding-top:10px}
+.mensal .area{position:relative;height:var(--h);margin-left:26px;min-width:260px}
+.mensal .grade{position:absolute;left:0;right:0;border-top:1px solid var(--linha)}
+.mensal .grade em{position:absolute;left:-26px;top:-9px;width:20px;text-align:right;font-style:normal;font-size:12px;color:var(--pedra);font-variant-numeric:tabular-nums}
+.mensal .cols{position:absolute;inset:0;display:flex;align-items:flex-end;gap:6px}
+.mensal .cols a{flex:1;height:100%;display:flex;align-items:flex-end;justify-content:center;border-radius:4px}
+.mensal .cols a:hover{background:var(--mata-clara)}
+.mensal .v{display:block;width:min(30px,70%);background:var(--mata);border-radius:4px 4px 0 0;min-height:0}
+.mensal .cols a:hover .v,.mensal .cols a.atual .v{background:var(--granito)}
+.mensal .cols a.mudo .v{opacity:.35}
+.mensal .rotulos{display:flex;gap:6px;margin-left:26px;min-width:260px}
+.mensal .rotulos span{flex:1;text-align:center;font-size:13px;color:var(--pedra)}
+.dica-grafico{position:fixed;pointer-events:none;background:var(--granito);color:var(--neblina);padding:6px 10px;border-radius:6px;font-size:14px;z-index:50;white-space:nowrap}
+
+/* barra de situação */
+.empilhada{display:flex;height:34px;border-radius:8px;overflow:hidden;gap:2px}
+.empilhada a{display:block;min-width:6px}
+.empilhada a:hover{filter:brightness(.92)}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:15px}
+.legenda a{text-decoration:none;color:var(--granito);display:inline-flex;gap:6px;align-items:center}
+.legenda i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.c-aprovado{background:var(--ok)} .c-rejeitado,.c-vetado{background:var(--nao)}
+.c-em-comissao,.c-lido-em-plenario,.c-apresentado,.c-adiado{background:var(--estrela)} .c-citado{background:var(--neutro)}
+
+/* barras horizontais de temas */
+.hbarras{display:flex;flex-direction:column;gap:6px}
+.hbarras a{display:grid;grid-template-columns:minmax(0,11em) 1fr 2.5em;gap:10px;align-items:center;text-decoration:none;color:var(--granito);font-size:15px;padding:2px 4px;border-radius:6px}
+.hbarras a:hover{background:var(--mata-clara)}
+.hbarras .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbarras .b{height:10px;background:var(--neutro-bg);border-radius:5px;overflow:hidden}
+.hbarras .b span{display:block;height:100%;background:var(--mata);border-radius:5px}
+.hbarras .n{text-align:right;color:var(--pedra);font-variant-numeric:tabular-nums}
+
+/* lista de vereadores */
+.lista{list-style:none;margin:0;padding:0;background:var(--papel);border-radius:var(--raio);border:1px solid var(--linha)}
+.lista>li+li{border-top:1px solid var(--linha)}
+.ver{display:grid;grid-template-columns:auto 1fr auto auto;gap:4px 14px;align-items:center;padding:12px 16px}
+.ver:hover{background:var(--mata-clara)}
+.ver .nome{font-weight:700;font-size:18px;text-decoration:none;color:var(--granito)}
+.ver .nome:hover{text-decoration:underline}
+.ver .partido{display:block;color:var(--pedra);font-size:15px}
+.ver .numeros{text-align:right;font-size:15px;color:var(--pedra);white-space:nowrap}
+.ver .numeros b{color:var(--granito)}
+.ver .barra{grid-column:2/-1;height:6px;background:var(--neutro-bg);border-radius:3px;overflow:hidden}
+.ver .barra span{display:block;height:100%;background:var(--mata)}
+.ver.novo .nome::after{content:"novidade";margin-left:8px;font-size:12px;vertical-align:middle;background:var(--espera-bg);color:var(--espera);padding:1px 8px;border-radius:999px}
+.seguir{background:none;border:0;cursor:pointer;font-size:22px;line-height:1;padding:4px;color:var(--linha)}
+.seguir[aria-pressed="true"]{color:var(--estrela)}
+.seguir:hover{color:var(--estrela)}
+.comparar-cx{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--pedra);cursor:pointer;white-space:nowrap}
+@media (max-width:600px){
+  .ver{grid-template-columns:auto 1fr auto}
+  .ver .numeros{grid-column:2;text-align:left}
+  .ver .comparar-cx{grid-column:3;grid-row:1}
+}
+.flutuante{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--granito);color:var(--neblina);border-radius:999px;padding:8px 8px 8px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100vw - 32px)}
+.flutuante span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.botao{border:2px solid var(--mata);border-radius:999px;padding:6px 16px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap}
+.primario{background:var(--mata);color:var(--sobre-mata)}
+.secundario{background:transparent;color:var(--mata)}
+.flutuante .primario{border-color:var(--neblina);background:var(--neblina);color:var(--granito)}
+.flutuante .fechar{background:none;border:0;color:var(--neblina);cursor:pointer;font-size:20px;padding:0 8px}
+
+/* situação */
+.situacao{display:inline-block;font-size:14px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--neutro-bg);color:var(--pedra);white-space:nowrap}
+.s-aprovado{background:var(--ok-bg);color:var(--ok)}
+.s-rejeitado,.s-vetado{background:var(--nao-bg);color:var(--nao)}
+.s-em-comissao,.s-adiado,.s-lido-em-plenario,.s-apresentado{background:var(--espera-bg);color:var(--espera)}
+
+.prop{padding:14px 18px}
+.prop .topo{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.prop .codigo{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;text-decoration:none;color:var(--granito)}
+.prop .codigo:hover{text-decoration:underline}
+.prop .meta{color:var(--pedra);font-size:15px}
+.trecho{margin:8px 0 0;font-size:16px;border-left:3px solid var(--linha);padding-left:12px}
+.temas-mini{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.temas-mini a{font-size:13px;color:var(--mata);background:var(--mata-clara);padding:1px 8px;border-radius:999px;text-decoration:none}
+.mais{display:block;width:100%;padding:12px;background:none;border:0;border-top:1px solid var(--linha);color:var(--mata);font-weight:700;cursor:pointer}
+
+/* perfil */
+.perfil-topo{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-start;justify-content:space-between}
+.perfil h2.nome-grande{font-size:clamp(28px,5vw,42px)}
+.perfil .sub{color:var(--pedra);margin:6px 0 0}
+.acoes{display:flex;flex-wrap:wrap;gap:8px}
+.resumo{display:flex;flex-wrap:wrap;gap:12px 36px;margin:22px 0 8px}
+.resumo div{font-size:15px;color:var(--pedra)}
+.resumo b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:32px;color:var(--granito);line-height:1.1;font-variant-numeric:tabular-nums}
+
+.linha-tempo{list-style:none;margin:0;padding:0 0 0 20px;border-left:2px solid var(--linha)}
+.linha-tempo li{position:relative;padding:0 0 22px 8px}
+.linha-tempo li::before{content:"";position:absolute;left:-27px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--papel);border:3px solid var(--mata)}
+.linha-tempo time{color:var(--pedra);font-size:15px}
+.linha-tempo .tit{display:block;font-weight:700}
+.etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.etiquetas a{font-size:14px;background:var(--mata-clara);color:var(--mata);padding:2px 9px;border-radius:999px;text-decoration:none}
+
+/* comparação */
+.comparacao{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comparacao .cartao h3{font-size:24px}
+.lado{display:flex;flex-direction:column;gap:14px}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.par .cartao b{font-family:"Bricolage Grotesque",sans-serif;font-size:28px;font-variant-numeric:tabular-nums}
+.par .cartao .vence{color:var(--ok)}
+@media (max-width:640px){.comparacao{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--linha);color:var(--pedra);font-size:15px;padding-block:24px 40px}
+footer p{max-width:70ch;margin:0 0 8px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(16px + env(safe-area-inset-top,0px));background:var(--granito);color:var(--neblina);padding:8px 16px;border-radius:999px;z-index:60;font-weight:700}
+@media (prefers-reduced-motion:no-preference){
+  .serra{animation:surgir .9s ease-out both}
+  @keyframes surgir{from{transform:translateY(30px);opacity:.4}to{transform:none;opacity:1}}
+  .ver .barra span,.hbarras .b span{animation:crescer .6s ease-out both}
+  @keyframes crescer{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="envolve">
+    <h1>Radar da Câmara de Teresópolis</h1>
+    <p>O que cada vereador apresenta, vota e discute, organizado a partir das notícias oficiais da Câmara Municipal.</p>
+  </div>
+  <svg class="serra" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 100 L0 72 L90 56 L170 66 L250 38 L330 60 L410 48 L470 58 L540 28 L585 42 L620 8 L634 4 L646 38 L700 52 L790 34 L860 56 L950 44 L1030 64 L1110 46 L1200 60 L1200 100 Z"/>
+  </svg>
+</header>
+
+<nav aria-label="Seções">
+  <div class="envolve">
+    <div class="abas">
+      <a href="#/" data-aba="inicio">Início</a>
+      <a href="#/vereadores" data-aba="vereadores">Vereadores</a>
+      <a href="#/projetos" data-aba="projetos">Projetos</a>
+      <a href="#/sessoes" data-aba="sessoes">Sessões</a>
+    </div>
+    <div class="busca" role="search">
+      <input type="search" id="busca-geral" placeholder="Buscar vereador, projeto ou assunto" aria-label="Buscar em todo o Radar" autocomplete="off" aria-controls="resultados" aria-expanded="false">
+      <div class="resultados" id="resultados" hidden></div>
+    </div>
+  </div>
+</nav>
+
+<main class="envolve" id="conteudo" tabindex="-1"></main>
+
+<footer>
+  <div class="envolve">
+    <p>Os dados são extraídos automaticamente das notícias publicadas em camarateresopolis.com.br. A situação de cada projeto é a que aparece na notícia mais recente que o cita, e pode não refletir a tramitação oficial. Os temas são atribuídos por palavras-chave. Confira sempre a notícia de origem.</p>
+    <p id="atualizado"></p>
+  </div>
+</footer>
+<div class="dica-grafico" id="dica" hidden></div>
+<div class="flutuante" id="barra-comparar" hidden></div>
+
+<script src="dados.js"></script>
+<script>
+(() => {
+  "use strict";
+  const D = window.DADOS || {vereadores: [], proposicoes: [], noticias: []};
+  const main = document.getElementById("conteudo");
+  const noticia = Object.fromEntries(D.noticias.map(n => [n.id, n]));
+  const vereador = Object.fromEntries(D.vereadores.map(v => [v.slug, v]));
+  const prop = Object.fromEntries(D.proposicoes.map(p => [p.chave, p]));
+
+  /* ---------- utilidades ---------- */
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+  const sem = t => String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const slug = t => sem(t).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const data = iso => iso ? new Date(iso + "T12:00:00").toLocaleDateString("pt-BR", {day: "numeric", month: "short", year: "numeric"}) : "";
+  const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  const nomeMes = ym => { const [a, m] = ym.split("-"); return `${MESES[+m - 1]} ${a}`; };
+  const slugProp = k => k.replace(/[ /]/g, "-");
+  const chaveDeSlug = s => { const m = decodeURIComponent(s || "").match(/^([A-Z]+)-(\d+)-(\d+)$/); return m ? `${m[1]} ${m[2]}/${m[3]}` : null; };
+  const classe = (pre, s) => pre + slug(s);
+  const pilula = s => `<span class="situacao ${classe("s-", s)}">${esc(s)}</span>`;
+  const plural = (n, um, varios) => `<b class="num">${n}</b> ${n === 1 ? um : varios}`;
+  const nomeAutor = a => vereador[a] ? `<a href="#/vereador/${a}">${esc(vereador[a].nome)}</a>` : esc(a);
+  const deAutor = a => (a === "Executivo" ? "do " : a === "Mesa Diretora" ? "da " : "de ") + nomeAutor(a);
+  const temaDeSlug = s => TEMAS.find(t => slug(t) === s);
+  const SIT_ORDEM = ["aprovado", "rejeitado", "vetado", "em comissão", "lido em plenário", "apresentado", "adiado", "citado"];
+
+  const TEMAS = [...new Set([...D.proposicoes.flatMap(p => p.temas || []), ...D.noticias.flatMap(n => n.temas || [])])].sort();
+
+  /* ---------- preferências do leitor (só neste navegador) ---------- */
+  const CHAVE = "radar-tere-v1";
+  const ler = () => { try { return JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch { return {}; } };
+  const pref = Object.assign({seguindo: [], ultimaVisita: null}, ler());
+  const salvar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(pref)); } catch {} };
+  const visitaAnterior = pref.ultimaVisita;
+  pref.ultimaVisita = new Date().toISOString().slice(0, 10); salvar();
+  const segue = s => pref.seguindo.includes(s);
+  const alternarSeguir = s => { pref.seguindo = segue(s) ? pref.seguindo.filter(x => x !== s) : [...pref.seguindo, s]; salvar(); };
+  const novidade = v => visitaAnterior && v.mencoes.some(m => (noticia[m.noticia]?.data || "") > visitaAnterior);
+  let comparar = [];
+  const estado = {ordem: "mencoes", partido: "", soSeguindo: false, busca: "", tipo: "", sit: "", ano: "", tema: "", mostrar: 30};
+
+  function toast(msg) {
+    const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; t.setAttribute("role", "status");
+    document.body.appendChild(t); setTimeout(() => t.remove(), 1800);
+  }
+  function copiarLink() {
+    const url = location.href;
+    try { navigator.clipboard.writeText(url).then(() => toast("Link copiado"), () => prompt("Copie o link:", url)); }
+    catch { prompt("Copie o link:", url); }
+  }
+
+  const avisoDemo = D.demo ? `<p class="aviso">Demonstração com notícias e vereadores fictícios. Os dados reais aparecem quando o coletor roda.</p>` : "";
+  document.getElementById("atualizado").textContent = D.gerado_em ? `Atualizado em ${new Date(D.gerado_em).toLocaleString("pt-BR")}.` : "";
+
+  /* ---------- gráficos ---------- */
+  function contarPorMes(noticias) {
+    const c = {};
+    noticias.forEach(n => { const k = n.data.slice(0, 7); c[k] = (c[k] || 0) + 1; });
+    if (!D.noticias.length) return [];
+    const datas = D.noticias.map(n => n.data.slice(0, 7)).sort();
+    let [a, m] = datas[0].split("-").map(Number); const [af, mf] = datas[datas.length - 1].split("-").map(Number);
+    const out = [];
+    while (a < af || (a === af && m <= mf)) { const k = `${a}-${String(m).padStart(2, "0")}`; out.push([k, c[k] || 0]); m++; if (m > 12) { m = 1; a++; } }
+    return out;
+  }
+
+  function graficoMensal(serie, {altura = 150, rotulo = "notícias", link = k => `#/sessoes/mes/${k}`, destaque = null} = {}) {
+    if (!serie.length) return `<p class="vazio">Sem dados ainda.</p>`;
+    const max = Math.max(1, ...serie.map(s => s[1]));
+    const passo = Math.max(1, Math.ceil(max / 3)), teto = passo * Math.ceil(max / passo);
+    const ticks = []; for (let t = 0; t <= teto; t += passo) ticks.push(t);
+    return `<div class="mensal" style="--h:${altura}px" role="group" aria-label="${rotulo} por mês">
+      <div class="area">
+        ${ticks.map(t => `<span class="grade" style="bottom:${t / teto * 100}%"><em>${t}</em></span>`).join("")}
+        <div class="cols">${serie.map(([k, v]) => `<a href="${link(k)}" class="${destaque && destaque !== k ? "mudo" : ""}${destaque === k ? " atual" : ""}" aria-label="${nomeMes(k)}: ${v} ${rotulo}" data-dica="${nomeMes(k)}: ${v} ${rotulo}"><span class="v" style="height:${v / teto * 100}%"></span></a>`).join("")}</div>
+      </div>
+      <div class="rotulos">${serie.map(([k]) => `<span>${MESES[+k.slice(5) - 1]}</span>`).join("")}</div>
+    </div>`;
+  }
+
+  function barraSituacao(lista, link = s => `#/projetos/situacao/${slug(s)}`) {
+    const c = {}; lista.forEach(p => c[p.situacao] = (c[p.situacao] || 0) + 1);
+    const ord = SIT_ORDEM.filter(s => c[s]);
+    if (!ord.length) return `<p class="vazio">Nenhum projeto ainda.</p>`;
+    return `<div class="empilhada" role="list">${ord.map(s => `<a role="listitem" data-sit="${esc(s)}" class="${classe("c-", s)}" style="flex:${c[s]}" href="${link(s)}" data-dica="${esc(s)}: ${c[s]}" aria-label="${esc(s)}: ${c[s]} projetos"></a>`).join("")}</div>
+      <div class="legenda">${ord.map(s => `<a data-sit="${esc(s)}" href="${link(s)}"><i class="${classe("c-", s)}"></i>${esc(s)} <b class="num">${c[s]}</b></a>`).join("")}</div>`;
+  }
+
+  function barrasTemas(contagem, link = t => `#/projetos/tema/${slug(t)}`, limite = 11) {
+    const itens = Object.entries(contagem).filter(e => e[1]).sort((a, b) => b[1] - a[1]).slice(0, limite);
+    if (!itens.length) return `<p class="vazio">Nenhum tema identificado.</p>`;
+    const max = itens[0][1];
+    return `<div class="hbarras">${itens.map(([t, n]) => `<a href="${link(t)}"><span class="t">${esc(t)}</span><span class="b"><span style="width:${(n / max * 100).toFixed(1)}%"></span></span><span class="n">${n}</span></a>`).join("")}</div>`;
+  }
+
+  /* dica flutuante dos gráficos */
+  const dica = document.getElementById("dica");
+  document.addEventListener("pointerover", e => { const d = e.target.closest?.("[data-dica]"); if (d) { dica.textContent = d.dataset.dica; dica.hidden = false; } });
+  document.addEventListener("pointermove", e => { if (!dica.hidden) { dica.style.left = Math.min(e.clientX + 12, innerWidth - dica.offsetWidth - 8) + "px"; dica.style.top = (e.clientY - 36) + "px"; } });
+  document.addEventListener("pointerout", e => { if (e.target.closest?.("[data-dica]")) dica.hidden = true; });
+
+  /* ---------- itens repetidos ---------- */
+  function linhaProp(p) {
+    const ult = p.mencoes[p.mencoes.length - 1];
+    const autores = p.autores.length ? p.autores.map(deAutor).join(", ") : "autoria não informada na notícia";
+    return `<li class="prop">
+      <div class="topo"><a class="codigo" href="#/projeto/${slugProp(p.chave)}">${esc(p.chave)}</a>${pilula(p.situacao)}
+      <span class="meta">${esc(p.tipo_nome)}, ${autores} · ${data(p.data_situacao)}</span></div>
+      <p class="trecho">${esc(ult.trecho)}</p>
+      ${(p.temas || []).length ? `<div class="temas-mini">${p.temas.map(t => `<a href="#/projetos/tema/${slug(t)}">${esc(t)}</a>`).join("")}</div>` : ""}</li>`;
+  }
+  const botaoSeguir = v => `<button class="seguir" data-seguir="${v.slug}" aria-pressed="${segue(v.slug)}" aria-label="${segue(v.slug) ? "Deixar de seguir" : "Seguir"} ${esc(v.nome)}" title="${segue(v.slug) ? "Seguindo" : "Seguir"}">★</button>`;
+  const aprovadosDe = v => v.autoria.filter(k => prop[k]?.situacao === "aprovado").length;
+
+  /* ---------- INÍCIO ---------- */
+  function inicio() {
+    if (!D.noticias.length) return avisoDemo + `<div class="vazio">Ainda não há notícias carregadas. O coletor roda automaticamente todo dia; depois da primeira execução, o painel aparece aqui.</div>`;
+    const sessoes = D.noticias.filter(n => n.sessao).length;
+    const aprov = D.proposicoes.filter(p => p.situacao === "aprovado").length;
+    const contTemas = {}; D.proposicoes.forEach(p => (p.temas || []).forEach(t => contTemas[t] = (contTemas[t] || 0) + 1));
+    const seguidos = pref.seguindo.map(s => vereador[s]).filter(Boolean);
+    let blocoSeguidos = "";
+    if (seguidos.length) {
+      const novas = D.noticias.filter(n => n.vereadores.some(segue) && (!visitaAnterior || n.data > visitaAnterior)).slice(0, 6);
+      blocoSeguidos = `<h2 class="secao">Quem você segue</h2>
+        <div class="chips" style="margin-bottom:12px">${seguidos.map(v => `<a class="chip" href="#/vereador/${v.slug}">★ ${esc(v.nome)}</a>`).join("")}</div>
+        ${novas.length ? `<p class="intro">${visitaAnterior ? `Desde sua última visita (${data(visitaAnterior)}):` : "Mais recentes:"}</p>
+          <ol class="linha-tempo">${novas.map(itemNoticia).join("")}</ol>` : `<p class="intro">Nenhuma notícia nova sobre eles desde ${data(visitaAnterior)}.</p>`}`;
+    } else {
+      blocoSeguidos = `<p class="intro" style="margin-top:22px">Dica: toque na ★ ao lado de um vereador para segui-lo. Na próxima visita, este painel mostra o que mudou sobre ele.</p>`;
+    }
+    return avisoDemo + `
+      <div class="painel">
+        <a class="cifra" href="#/sessoes"><b>${sessoes}</b><span>sessões noticiadas</span></a>
+        <a class="cifra" href="#/projetos"><b>${D.proposicoes.length}</b><span>projetos e leis citados</span></a>
+        <a class="cifra" href="#/projetos/situacao/aprovado"><b>${aprov}</b><span>aprovados</span></a>
+        <a class="cifra" href="#/vereadores"><b>${D.vereadores.length}</b><span>vereadores</span></a>
+      </div>
+      ${blocoSeguidos}
+      <h2 class="secao">Atividade da Câmara</h2>
+      <div class="cartao"><h3>Notícias por mês</h3><p class="leg">Toque em um mês para ver o que aconteceu.</p>${graficoMensal(contarPorMes(D.noticias))}</div>
+      <div class="dupla" style="margin-top:12px">
+        <div class="cartao"><h3>Assuntos dos projetos</h3><p class="leg">Toque em um tema para ver os projetos.</p>${barrasTemas(contTemas)}</div>
+        <div class="cartao"><h3>Situação dos projetos</h3><p class="leg">Segundo a notícia mais recente de cada um.</p>${barraSituacao(D.proposicoes)}</div>
+      </div>
+      <h2 class="secao">Últimas notícias</h2>
+      <ol class="linha-tempo">${D.noticias.slice(0, 5).map(itemNoticia).join("")}</ol>
+      <a class="botao secundario" href="#/sessoes">Ver todas</a>`;
+  }
+
+  /* ---------- VEREADORES ---------- */
+  function vereadores() {
+    const partidos = [...new Set(D.vereadores.map(v => v.partido))].sort();
+    return avisoDemo + `<p class="intro">Toque no nome para ver o perfil. Marque dois para comparar lado a lado.</p>
+      <div class="barra-ferramentas">
+        <div class="chips" id="f-partido" role="group" aria-label="Filtrar por partido">
+          <button class="chip" data-partido="" aria-pressed="${!estado.partido}">Todos</button>
+          ${partidos.map(p => `<button class="chip" data-partido="${esc(p)}" aria-pressed="${estado.partido === p}">${esc(p)} <small>${D.vereadores.filter(v => v.partido === p).length}</small></button>`).join("")}
+        </div>
+      </div>
+      <div class="barra-ferramentas">
+        <label>Ordenar por <select id="ordem">
+          <option value="mencoes">mais citados</option><option value="projetos">mais projetos</option>
+          <option value="aprovados">mais aprovados</option><option value="nome">nome</option></select></label>
+        <label><input type="checkbox" id="so-seguindo" ${estado.soSeguindo ? "checked" : ""}> Só quem eu sigo</label>
+      </div>
+      <ul class="lista" id="lista-ver"></ul>`;
+  }
+  function desenharVereadores() {
+    let lista = D.vereadores.filter(v => (!estado.partido || v.partido === estado.partido) && (!estado.soSeguindo || segue(v.slug)));
+    const chave = {mencoes: v => v.mencoes.length, projetos: v => v.autoria.length, aprovados: aprovadosDe}[estado.ordem];
+    lista = [...lista].sort((a, b) => chave ? (chave(b) - chave(a) || a.nome.localeCompare(b.nome)) : a.nome.localeCompare(b.nome));
+    const max = Math.max(1, ...D.vereadores.map(v => chave ? chave(v) : v.mencoes.length));
+    const el = document.getElementById("lista-ver");
+    el.innerHTML = lista.length ? lista.map(v => {
+      const val = chave ? chave(v) : v.mencoes.length;
+      return `<li><div class="ver${novidade(v) ? " novo" : ""}">
+        ${botaoSeguir(v)}
+        <div style="min-width:0"><a class="nome" href="#/vereador/${v.slug}">${esc(v.nome)}</a><span class="partido">${esc(v.partido)}${v.cargo ? ", " + esc(v.cargo) : ""}</span></div>
+        <span class="numeros">${plural(v.mencoes.length, "notícia", "notícias")} · ${plural(v.autoria.length, "projeto", "projetos")} · ${plural(aprovadosDe(v), "aprovado", "aprovados")}</span>
+        <label class="comparar-cx"><input type="checkbox" data-comparar="${v.slug}" ${comparar.includes(v.slug) ? "checked" : ""}> comparar</label>
+        <span class="barra" aria-hidden="true"><span style="width:${(val / max * 100).toFixed(1)}%"></span></span>
+      </div></li>`;
+    }).join("") : `<li class="prop">${estado.soSeguindo ? "Você ainda não segue ninguém. Toque na ★ ao lado de um nome." : "Nenhum vereador com esse filtro."}</li>`;
+    document.getElementById("ordem").value = estado.ordem;
+  }
+  function desenharBarraComparar() {
+    const b = document.getElementById("barra-comparar");
+    if (!comparar.length) { b.hidden = true; return; }
+    b.hidden = false;
+    b.innerHTML = comparar.length === 1
+      ? `<span>${esc(vereador[comparar[0]].nome)}: escolha mais um</span><button class="fechar" aria-label="Limpar seleção">×</button>`
+      : `<span>${esc(vereador[comparar[0]].nome)} e ${esc(vereador[comparar[1]].nome)}</span><a class="botao primario" href="#/comparar/${comparar[0]}/${comparar[1]}">Comparar</a><button class="fechar" aria-label="Limpar seleção">×</button>`;
+  }
+
+  /* ---------- PERFIL ---------- */
+  function perfil(s) {
+    const v = vereador[s];
+    if (!v) return `<div class="vazio">Vereador não encontrado. <a href="#/vereadores">Ver a lista completa</a>.</div>`;
+    const props = v.autoria.map(k => prop[k]).filter(Boolean);
+    const mens = v.mencoes.map(m => noticia[m.noticia]).filter(Boolean);
+    const mencoes = [...v.mencoes].sort((a, b) => (noticia[b.noticia]?.data || "").localeCompare(noticia[a.noticia]?.data || ""));
+    return avisoDemo + `<a class="voltar" href="#/vereadores">Todos os vereadores</a>
+      <section class="perfil">
+        <div class="perfil-topo">
+          <div><h2 class="nome-grande">${esc(v.nome)}</h2>
+          <p class="sub">${esc(v.partido)}${v.cargo ? ", " + esc(v.cargo) : ""}${v.url && v.url !== "#" ? ` · <a href="${esc(v.url)}" rel="noopener">página oficial</a>` : ""}</p></div>
+          <div class="acoes">
+            <button class="botao ${segue(v.slug) ? "primario" : "secundario"}" data-seguir="${v.slug}" aria-pressed="${segue(v.slug)}">${segue(v.slug) ? "★ Seguindo" : "☆ Seguir"}</button>
+            <button class="botao secundario" id="copiar">Copiar link</button>
+          </div>
+        </div>
+        <div class="resumo">
+          <div><b>${v.mencoes.length}</b>notícias citam</div><div><b>${props.length}</b>projetos de autoria</div>
+          <div><b>${aprovadosDe(v)}</b>aprovados</div><div><b>${props.filter(p => !["aprovado", "rejeitado", "vetado"].includes(p.situacao)).length}</b>em andamento</div>
+        </div>
+        <div class="dupla">
+          <div class="cartao"><h3>Presença nas notícias</h3><p class="leg">Notícias que citam ${esc(v.nome)}, por mês.</p>${graficoMensal(contarPorMes(mens), {altura: 130})}</div>
+          <div class="cartao"><h3>Assuntos em que aparece</h3><p class="leg">Por quantidade de notícias.</p>${barrasTemas(v.temas || {}, t => `#/projetos/tema/${slug(t)}`, 6)}</div>
+        </div>
+        <h2 class="secao">Projetos de autoria</h2>
+        ${props.length ? `${barraSituacao(props)}<ul class="lista" style="margin-top:12px">${props.map(linhaProp).join("")}</ul>`
+          : `<div class="vazio">Nenhum projeto com autoria atribuída a este vereador nas notícias. Isso não quer dizer que ele não tenha apresentado projetos: muitas notícias não informam o autor.</div>`}
+        <h2 class="secao">O que as notícias registram</h2>
+        ${mencoes.length ? `<ol class="linha-tempo">${mencoes.map(m => { const n = noticia[m.noticia]; return n ? `<li><time>${data(n.data)}</time>
+          <a class="tit" href="${esc(n.link)}" rel="noopener">${esc(n.titulo)}</a>${m.trechos.map(t => `<p class="trecho">${esc(t)}</p>`).join("")}</li>` : ""; }).join("")}</ol>`
+          : `<div class="vazio">Nenhuma notícia cita este vereador ainda.</div>`}
+      </section>`;
+  }
+
+  /* ---------- COMPARAR ---------- */
+  function compararVer(a, b) {
+    const A = vereador[a], B = vereador[b];
+    if (!A || !B) return `<div class="vazio">Escolha dois vereadores na <a href="#/vereadores">lista</a> para comparar.</div>`;
+    const met = [["Notícias que citam", v => v.mencoes.length], ["Projetos de autoria", v => v.autoria.length], ["Projetos aprovados", aprovadosDe]];
+    const serieA = contarPorMes(A.mencoes.map(m => noticia[m.noticia]).filter(Boolean));
+    const serieB = contarPorMes(B.mencoes.map(m => noticia[m.noticia]).filter(Boolean));
+    const temas = [...new Set([...Object.keys(A.temas || {}), ...Object.keys(B.temas || {})])];
+    const maxT = Math.max(1, ...temas.flatMap(t => [A.temas?.[t] || 0, B.temas?.[t] || 0]));
+    return avisoDemo + `<a class="voltar" href="#/vereadores">Todos os vereadores</a>
+      <h2 style="font-size:clamp(24px,4vw,34px);margin-bottom:18px">${esc(A.nome)} e ${esc(B.nome)}</h2>
+      ${met.map(([rot, f]) => { const x = f(A), y = f(B); return `<div class="par">
+        <div class="cartao"><span class="leg">${rot}</span><br><b class="${x > y ? "vence" : ""}">${x}</b></div>
+        <div class="cartao"><span class="leg">${rot}</span><br><b class="${y > x ? "vence" : ""}">${y}</b></div></div>`; }).join("")}
+      <div class="comparacao">
+        ${[[A, serieA], [B, serieB]].map(([v, s]) => `<div class="cartao lado"><h3><a href="#/vereador/${v.slug}">${esc(v.nome)}</a></h3><span class="leg">${esc(v.partido)}</span>
+          <div><p class="leg">Notícias por mês</p>${graficoMensal(s, {altura: 120})}</div></div>`).join("")}
+      </div>
+      <h2 class="secao">Assuntos</h2>
+      <div class="cartao"><div class="hbarras">${temas.length ? temas.map(t => `
+        <div style="display:grid;grid-template-columns:minmax(0,11em) 1fr;gap:10px;align-items:center;font-size:15px"><span class="t">${esc(t)}</span>
+        <span style="display:flex;flex-direction:column;gap:3px">
+          <span class="b" title="${esc(A.nome)}: ${A.temas?.[t] || 0}"><span style="width:${((A.temas?.[t] || 0) / maxT * 100).toFixed(1)}%"></span></span>
+          <span class="b" title="${esc(B.nome)}: ${B.temas?.[t] || 0}"><span style="width:${((B.temas?.[t] || 0) / maxT * 100).toFixed(1)}%;background:var(--estrela)"></span></span>
+        </span></div>`).join("") : "<p>Nenhum tema identificado.</p>"}</div>
+        <div class="legenda"><span><i class="c-aprovado" style="background:var(--mata)"></i>${esc(A.nome)}</span><span><i style="background:var(--estrela)"></i>${esc(B.nome)}</span></div>
+      </div>`;
+  }
+
+  /* ---------- PROJETOS ---------- */
+  function projetos() {
+    if (!D.proposicoes.length) return avisoDemo + `<div class="vazio">Nenhum projeto encontrado nas notícias carregadas.</div>`;
+    const anos = [...new Set(D.proposicoes.map(p => p.ano))].sort((a, b) => b - a);
+    const tipos = [...new Map(D.proposicoes.map(p => [p.tipo, p.tipo_nome])).entries()];
+    const sits = SIT_ORDEM.filter(s => D.proposicoes.some(p => p.situacao === s));
+    const contTema = t => D.proposicoes.filter(p => (p.temas || []).includes(t)).length;
+    return avisoDemo + `
+      <div class="barra-ferramentas">
+        <input type="search" id="busca" placeholder="Número, autor ou assunto" aria-label="Buscar projetos" value="${esc(estado.busca)}" style="flex:1 1 220px">
+        <select id="f-tipo" aria-label="Tipo"><option value="">Todos os tipos</option>${tipos.map(([s, n]) => `<option value="${s}">${esc(n)}</option>`).join("")}</select>
+        <select id="f-sit" aria-label="Situação"><option value="">Qualquer situação</option>${sits.map(s => `<option>${esc(s)}</option>`).join("")}</select>
+        <select id="f-ano" aria-label="Ano"><option value="">Todos os anos</option>${anos.map(a => `<option>${a}</option>`).join("")}</select>
+      </div>
+      <div class="chips" id="f-tema" role="group" aria-label="Filtrar por tema" style="margin-bottom:16px">
+        <button class="chip" data-tema="" aria-pressed="${!estado.tema}">Todos os temas</button>
+        ${TEMAS.map(t => `<button class="chip" data-tema="${esc(t)}" aria-pressed="${estado.tema === t}">${esc(t)} <small>${contTema(t)}</small></button>`).join("")}
+      </div>
+      <div class="cartao" style="margin-bottom:16px"><div id="resumo-filtro"></div></div>
+      <ul class="lista" id="lista-projetos"></ul>`;
+  }
+  function filtrados() {
+    const q = sem(estado.busca.trim());
+    return D.proposicoes.filter(p => (!estado.tipo || p.tipo === estado.tipo) && (!estado.sit || p.situacao === estado.sit) &&
+      (!estado.ano || String(p.ano) === estado.ano) && (!estado.tema || (p.temas || []).includes(estado.tema)) &&
+      (!q || sem([p.chave, p.tipo_nome, ...p.autores.map(x => vereador[x]?.nome || x), ...p.mencoes.map(m => m.trecho), ...(p.temas || [])].join(" ")).includes(q)));
+  }
+  function desenharProjetos() {
+    const itens = filtrados();
+    ["f-tipo", "f-sit", "f-ano"].forEach((id, i) => document.getElementById(id).value = [estado.tipo, estado.sit, estado.ano][i]);
+    document.querySelectorAll("#f-tema .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.tema === estado.tema));
+    document.getElementById("resumo-filtro").innerHTML = `<p class="leg" style="margin:0 0 8px"><b class="num" style="color:var(--granito)">${itens.length}</b> de ${D.proposicoes.length} projetos. Toque numa cor para filtrar pela situação.</p>` +
+      barraSituacao(itens, () => "#");
+    document.querySelectorAll("#resumo-filtro [data-sit]").forEach(a => a.addEventListener("click", e => {
+      e.preventDefault(); estado.sit = estado.sit === a.dataset.sit ? "" : a.dataset.sit; estado.mostrar = 30; desenharProjetos();
+    }));
+    const lista = document.getElementById("lista-projetos");
+    lista.innerHTML = itens.length ? itens.slice(0, estado.mostrar).map(linhaProp).join("") +
+      (itens.length > estado.mostrar ? `<li><button class="mais" id="mais">Mostrar mais ${Math.min(30, itens.length - estado.mostrar)} de ${itens.length - estado.mostrar} restantes</button></li>` : "")
+      : `<li class="prop">Nenhum projeto com esses filtros. <button class="botao secundario" id="limpar">Limpar filtros</button></li>`;
+    document.getElementById("mais")?.addEventListener("click", () => { estado.mostrar += 30; desenharProjetos(); });
+    document.getElementById("limpar")?.addEventListener("click", () => { Object.assign(estado, {busca: "", tipo: "", sit: "", ano: "", tema: ""}); document.getElementById("busca").value = ""; desenharProjetos(); });
+  }
+
+  function projeto(s) {
+    const p = prop[chaveDeSlug(s)];
+    if (!p) return `<div class="vazio">Projeto não encontrado. <a href="#/projetos">Ver todos</a>.</div>`;
+    return avisoDemo + `<a class="voltar" href="#/projetos">Todos os projetos</a>
+      <section class="perfil"><div class="perfil-topo"><div><h2 class="nome-grande">${esc(p.chave)}</h2>
+      <p class="sub">${esc(p.tipo_nome)} · ${pilula(p.situacao)} em ${data(p.data_situacao)}</p></div>
+      <div class="acoes"><button class="botao secundario" id="copiar">Copiar link</button></div></div>
+      <p>Autoria: ${p.autores.length ? p.autores.map(nomeAutor).join(", ") : "não informada nas notícias"}</p>
+      ${(p.temas || []).length ? `<div class="temas-mini">${p.temas.map(t => `<a href="#/projetos/tema/${slug(t)}">${esc(t)}</a>`).join("")}</div>` : ""}
+      <h2 class="secao">Caminho nas notícias</h2>
+      <ol class="linha-tempo">${p.mencoes.map(m => { const n = noticia[m.noticia]; return `<li><time>${data(m.data)}</time> ${pilula(m.situacao)}
+        <a class="tit" href="${esc(n?.link)}" rel="noopener">${esc(n?.titulo)}</a><p class="trecho">${esc(m.trecho)}</p></li>`; }).join("")}</ol>
+      </section>`;
+  }
+
+  /* ---------- SESSÕES ---------- */
+  function itemNoticia(n) {
+    return `<li><time>${data(n.data)}</time><a class="tit" href="${esc(n.link)}" rel="noopener">${esc(n.titulo)}</a>
+      <div class="etiquetas">${n.proposicoes.map(k => `<a href="#/projeto/${slugProp(k)}">${esc(k)}</a>`).join("")}
+      ${n.vereadores.map(s => `<a href="#/vereador/${s}">${segue(s) ? "★ " : ""}${esc(vereador[s]?.nome)}</a>`).join("")}</div></li>`;
+  }
+  function sessoes(mes) {
+    if (!D.noticias.length) return avisoDemo + `<div class="vazio">Ainda não há notícias carregadas.</div>`;
+    return avisoDemo + `
+      <div class="cartao" style="margin-bottom:16px"><h3>${mes ? nomeMes(mes) : "Todos os meses"}</h3><p class="leg">${mes ? `<a href="#/sessoes">Ver todos os meses</a> ou toque em outro mês.` : "Toque em um mês para filtrar."}</p>
+      ${graficoMensal(contarPorMes(D.noticias), {destaque: mes, link: k => k === mes ? "#/sessoes" : `#/sessoes/mes/${k}`})}</div>
+      <div class="barra-ferramentas"><label><input type="checkbox" id="so-sessoes"> Só relatos de sessões</label>
+        <label><input type="checkbox" id="so-seguidos"> Só com quem eu sigo</label></div>
+      <ol class="linha-tempo" id="lista-noticias"></ol>`;
+  }
+  function desenharSessoes(mes) {
+    const so = document.getElementById("so-sessoes").checked, seg = document.getElementById("so-seguidos").checked;
+    const itens = D.noticias.filter(n => (!so || n.sessao) && (!seg || n.vereadores.some(segue)) && (!mes || n.data.startsWith(mes)));
+    document.getElementById("lista-noticias").innerHTML = itens.length ? itens.map(itemNoticia).join("") : `<li>Nenhuma notícia com esses filtros.</li>`;
+  }
+
+  /* ---------- busca geral ---------- */
+  const campo = document.getElementById("busca-geral"), caixa = document.getElementById("resultados");
+  let ativo = -1;
+  function buscar() {
+    const q = sem(campo.value.trim());
+    if (q.length < 2) { caixa.hidden = true; campo.setAttribute("aria-expanded", "false"); return; }
+    const vs = D.vereadores.filter(v => sem(v.nome + " " + v.partido).includes(q)).slice(0, 5);
+    const ts = TEMAS.filter(t => sem(t).includes(q)).slice(0, 3);
+    const ps = D.proposicoes.filter(p => sem(p.chave + " " + p.mencoes.map(m => m.trecho).join(" ")).includes(q)).slice(0, 6);
+    const ns = D.noticias.filter(n => sem(n.titulo).includes(q)).slice(0, 4);
+    let html = "";
+    if (vs.length) html += `<h4>Vereadores</h4>` + vs.map(v => `<a href="#/vereador/${v.slug}">${esc(v.nome)}<small>${esc(v.partido)}</small></a>`).join("");
+    if (ts.length) html += `<h4>Temas</h4>` + ts.map(t => `<a href="#/projetos/tema/${slug(t)}">${esc(t)}</a>`).join("");
+    if (ps.length) html += `<h4>Projetos</h4>` + ps.map(p => `<a href="#/projeto/${slugProp(p.chave)}">${esc(p.chave)} <small>${esc(p.mencoes[p.mencoes.length - 1].trecho.slice(0, 90))}…</small></a>`).join("");
+    if (ns.length) html += `<h4>Notícias</h4>` + ns.map(n => `<a href="${esc(n.link)}" rel="noopener">${esc(n.titulo)}<small>${data(n.data)}</small></a>`).join("");
+    caixa.innerHTML = html || `<p>Nada encontrado para "${esc(campo.value)}".</p>`;
+    caixa.hidden = false; campo.setAttribute("aria-expanded", "true"); ativo = -1;
+  }
+  campo.addEventListener("input", buscar);
+  campo.addEventListener("keydown", e => {
+    const links = [...caixa.querySelectorAll("a")];
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault(); if (!links.length) return;
+      ativo = (ativo + (e.key === "ArrowDown" ? 1 : -1) + links.length) % links.length;
+      links.forEach((l, i) => l.classList.toggle("ativo", i === ativo)); links[ativo].scrollIntoView({block: "nearest"});
+    } else if (e.key === "Enter") { const l = links[ativo] || links[0]; if (l) { l.click(); } }
+    else if (e.key === "Escape") { caixa.hidden = true; campo.blur(); }
+  });
+  caixa.addEventListener("click", e => { if (e.target.closest("a")) { caixa.hidden = true; campo.value = ""; } });
+  document.addEventListener("click", e => { if (!e.target.closest(".busca")) caixa.hidden = true; });
+
+  /* ---------- eventos delegados ---------- */
+  main.addEventListener("click", e => {
+    const sg = e.target.closest("[data-seguir]");
+    if (sg) { alternarSeguir(sg.dataset.seguir); toast(segue(sg.dataset.seguir) ? `Seguindo ${vereador[sg.dataset.seguir].nome}` : "Deixou de seguir"); rotear(false); return; }
+    const pt = e.target.closest("[data-partido]");
+    if (pt) { estado.partido = pt.dataset.partido; document.querySelectorAll("#f-partido .chip").forEach(c => c.setAttribute("aria-pressed", c === pt)); desenharVereadores(); return; }
+    const tm = e.target.closest("[data-tema]");
+    if (tm) { estado.tema = tm.dataset.tema; estado.mostrar = 30; desenharProjetos(); return; }
+    if (e.target.id === "copiar") copiarLink();
+  });
+  main.addEventListener("change", e => {
+    const c = e.target.closest("[data-comparar]");
+    if (c) {
+      comparar = c.checked ? [...comparar.filter(x => x !== c.dataset.comparar), c.dataset.comparar].slice(-2) : comparar.filter(x => x !== c.dataset.comparar);
+      document.querySelectorAll("[data-comparar]").forEach(x => x.checked = comparar.includes(x.dataset.comparar));
+      desenharBarraComparar(); return;
+    }
+    if (e.target.id === "ordem") { estado.ordem = e.target.value; desenharVereadores(); }
+    if (e.target.id === "so-seguindo") { estado.soSeguindo = e.target.checked; desenharVereadores(); }
+  });
+  main.addEventListener("input", e => {
+    const mapa = {"busca": "busca", "f-tipo": "tipo", "f-sit": "sit", "f-ano": "ano"};
+    if (mapa[e.target.id]) { estado[mapa[e.target.id]] = e.target.value; estado.mostrar = 30; desenharProjetos(); }
+  });
+  document.getElementById("barra-comparar").addEventListener("click", e => {
+    if (e.target.closest(".fechar")) { comparar = []; document.querySelectorAll("[data-comparar]").forEach(x => x.checked = false); desenharBarraComparar(); }
+    if (e.target.closest("a")) { setTimeout(() => { comparar = []; desenharBarraComparar(); }, 0); }
+  });
+
+  /* ---------- rotas ---------- */
+  function rotear(rolar = true) {
+    const [, rota = "", a, b] = location.hash.split("/");
+    const aba = {vereadores: "vereadores", vereador: "vereadores", comparar: "vereadores", projetos: "projetos", projeto: "projetos", sessoes: "sessoes"}[rota] || "inicio";
+    document.querySelectorAll(".abas a").forEach(x => x.dataset.aba === aba ? x.setAttribute("aria-current", "page") : x.removeAttribute("aria-current"));
+    const y = scrollY;
+    if (rota === "vereadores") { main.innerHTML = vereadores(); desenharVereadores(); }
+    else if (rota === "vereador") main.innerHTML = perfil(a);
+    else if (rota === "comparar") main.innerHTML = compararVer(a, b);
+    else if (rota === "projetos") {
+      if (rolar) { if (a === "tema") estado.tema = temaDeSlug(b) || ""; else if (a === "situacao") estado.sit = SIT_ORDEM.find(s => slug(s) === b) || ""; else if (!a) { estado.tema = ""; estado.sit = ""; } }
+      main.innerHTML = projetos(); if (D.proposicoes.length) desenharProjetos();
+    }
+    else if (rota === "projeto") main.innerHTML = projeto(a);
+    else if (rota === "sessoes") {
+      const mes = a === "mes" ? b : null;
+      main.innerHTML = sessoes(mes);
+      if (D.noticias.length) { ["so-sessoes", "so-seguidos"].forEach(id => document.getElementById(id).addEventListener("change", () => desenharSessoes(mes))); desenharSessoes(mes); }
+    }
+    else main.innerHTML = inicio();
+    desenharBarraComparar();
+    if (rolar && location.hash) {
+      const topo = document.querySelector("nav").getBoundingClientRect().top + scrollY;
+      if (scrollY > topo) scrollTo({top: topo});
+      main.focus({preventScroll: true});
+    } else if (!rolar) scrollTo({top: y});
+  }
+  addEventListener("hashchange", () => rotear(true));
+  rotear(false);
+})();
+</script>
+</body>
+</html>
