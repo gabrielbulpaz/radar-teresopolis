@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-05T00:30:54+00:00",
+ "gerado_em": "2026-11-05T00:33:45+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -159,9 +159,9 @@
     "Saúde": 4,
     "Homenagens e nomes": 3,
     "Finanças e impostos": 1,
+    "Obras e urbanismo": 1,
     "Educação": 1,
     "Meio ambiente e saneamento": 1,
-    "Obras e urbanismo": 1,
     "Transporte e trânsito": 1,
     "Assistência social": 1
    }
@@ -226,12 +226,12 @@
    "autoria": [],
    "temas": {
     "Saúde": 3,
-    "Finanças e impostos": 1,
     "Assistência social": 1,
+    "Finanças e impostos": 1,
+    "Obras e urbanismo": 1,
     "Transporte e trânsito": 1,
     "Segurança e iluminação": 1,
-    "Meio ambiente e saneamento": 1,
-    "Obras e urbanismo": 1
+    "Meio ambiente e saneamento": 1
    }
   },
   {
@@ -362,7 +362,9 @@
      ]
     }
    ],
-   "autoria": [],
+   "autoria": [
+    "PL 075/2026"
+   ],
    "temas": {
     "Homenagens e nomes": 3,
     "Finanças e impostos": 3,
@@ -546,7 +548,10 @@
      ]
     }
    ],
-   "autoria": [],
+   "autoria": [
+    "PL 017/2026",
+    "PL 018/2026"
+   ],
    "temas": {
     "Educação": 13,
     "Assistência social": 5,
@@ -618,8 +623,8 @@
    "temas": {
     "Cultura, turismo e esporte": 2,
     "Saúde": 1,
-    "Educação": 1,
     "Transporte e trânsito": 1,
+    "Educação": 1,
     "Obras e urbanismo": 1
    }
   },
@@ -653,9 +658,9 @@
    ],
    "autoria": [],
    "temas": {
-    "Segurança e iluminação": 1,
     "Assistência social": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -748,9 +753,9 @@
     "Segurança e iluminação": 2,
     "Educação": 2,
     "Obras e urbanismo": 2,
-    "Saúde": 1,
-    "Assistência social": 1,
     "Cultura, turismo e esporte": 1,
+    "Assistência social": 1,
+    "Saúde": 1,
     "Transporte e trânsito": 1
    }
   },
@@ -891,8 +896,8 @@
    "temas": {
     "Cultura, turismo e esporte": 2,
     "Educação": 1,
-    "Saúde": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Saúde": 1
    }
   },
   {
@@ -1496,8 +1501,8 @@
    "temas": {
     "Assistência social": 2,
     "Animais": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -1704,8 +1709,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Educação": 1,
-    "Cultura, turismo e esporte": 1
+    "Cultura, turismo e esporte": 1,
+    "Educação": 1
    }
   }
  ],
@@ -1721,11 +1726,11 @@
     {
      "noticia": 9984,
      "data": "2026-04-28",
-     "situacao": "citado",
+     "situacao": "aprovado",
      "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
     }
    ],
-   "situacao": "citado",
+   "situacao": "aprovado",
    "data_situacao": "2026-04-28",
    "temas": [
     "Saúde",
@@ -1738,16 +1743,18 @@
    "tipo_nome": "Projeto de Lei",
    "numero": 75,
    "ano": 2026,
-   "autores": [],
+   "autores": [
+    "paulinho-nogueira"
+   ],
    "mencoes": [
     {
      "noticia": 9984,
      "data": "2026-04-28",
-     "situacao": "citado",
+     "situacao": "aprovado",
      "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
     }
    ],
-   "situacao": "citado",
+   "situacao": "aprovado",
    "data_situacao": "2026-04-28",
    "temas": [
     "Saúde",
@@ -1767,11 +1774,11 @@
     {
      "noticia": 9984,
      "data": "2026-04-28",
-     "situacao": "citado",
+     "situacao": "aprovado",
      "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
     }
    ],
-   "situacao": "citado",
+   "situacao": "aprovado",
    "data_situacao": "2026-04-28",
    "temas": [
     "Saúde",
@@ -1837,16 +1844,18 @@
    "tipo_nome": "Projeto de Lei",
    "numero": 18,
    "ano": 2026,
-   "autores": [],
+   "autores": [
+    "professora-amanda"
+   ],
    "mencoes": [
     {
      "noticia": 9815,
      "data": "2026-03-03",
-     "situacao": "citado",
+     "situacao": "apresentado",
      "trecho": "Já o PL nº 018/2026 institui a realização de diagnóstico técnico da estrutura remuneratória dos servidores cujos vencimentos básicos sejam inferiores ao salário mínimo nacional, buscando corrigir distorções históricas que impedem que esses trabalhadores sintam o impacto real…"
     }
    ],
-   "situacao": "citado",
+   "situacao": "apresentado",
    "data_situacao": "2026-03-03",
    "temas": []
   },
@@ -1856,16 +1865,18 @@
    "tipo_nome": "Projeto de Lei",
    "numero": 17,
    "ano": 2026,
-   "autores": [],
+   "autores": [
+    "professora-amanda"
+   ],
    "mencoes": [
     {
      "noticia": 9815,
      "data": "2026-03-03",
-     "situacao": "citado",
+     "situacao": "apresentado",
      "trecho": "O PL nº 017/2026 propõe a obrigatoriedade de instalação de placas informativas em eventos públicos que utilizem recursos públicos, garantindo transparência ao contribuinte."
     }
    ],
-   "situacao": "citado",
+   "situacao": "apresentado",
    "data_situacao": "2026-03-03",
    "temas": []
   },
@@ -1922,11 +1933,11 @@
     {
      "noticia": 9984,
      "data": "2026-04-28",
-     "situacao": "citado",
+     "situacao": "revogada",
      "trecho": "Em sessão ordinária e extraordinária realizada nesta terça-feira, o plenário revogou a Lei Complementar nº 351/2025 e suspendeu todos os seus efeitos jurídicos; vereadores também destacaram a inauguração do centro de radioterapia no Hospital São José"
     }
    ],
-   "situacao": "citado",
+   "situacao": "revogada",
    "data_situacao": "2026-04-28",
    "temas": [
     "Saúde",
@@ -2069,7 +2080,7 @@
     {
      "noticia": 8210,
      "data": "2025-01-21",
-     "situacao": "citado",
+     "situacao": "aprovado",
      "trecho": "4. Projeto de Resolução nº 001/2025:"
     },
     {
@@ -2079,8 +2090,8 @@
      "trecho": "A sessão ocorreu já no novo horário, às 10h da manhã, conforme estabelecido pelo Projeto de Resolução nº 001/2025, que alterou o funcionamento do plenário para terças e quintas-feiras, às 10h."
     }
    ],
-   "situacao": "citado",
-   "data_situacao": "2025-02-18",
+   "situacao": "aprovado",
+   "data_situacao": "2025-01-21",
    "temas": [
     "Cultura, turismo e esporte"
    ]
@@ -2117,11 +2128,11 @@
     {
      "noticia": 9826,
      "data": "2026-03-06",
-     "situacao": "citado",
+     "situacao": "lei citada",
      "trecho": "O primeiro altera a planilha de Gratificação de Gestão Escolar (GGE) prevista na Lei Complementar nº 182/2014, adequando-a à estrutura atual das unidades educacionais municipais."
     }
    ],
-   "situacao": "citado",
+   "situacao": "lei citada",
    "data_situacao": "2026-03-06",
    "temas": [
     "Educação"
