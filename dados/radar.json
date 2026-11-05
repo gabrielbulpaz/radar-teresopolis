@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-05T10:10:40+00:00",
+ "gerado_em": "2026-11-05T13:15:35+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -9,7 +9,7 @@
    "partido": "DC",
    "cargo": "Presidente",
    "url": "https://camarateresopolis.com.br/luciano-santos/",
-   "foto": "",
+   "foto": "luciano-santos.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -160,9 +160,9 @@
     "Saúde": 4,
     "Homenagens e nomes": 3,
     "Finanças e impostos": 2,
+    "Obras e urbanismo": 1,
     "Educação": 1,
     "Meio ambiente e saneamento": 1,
-    "Obras e urbanismo": 1,
     "Transporte e trânsito": 1,
     "Assistência social": 1
    }
@@ -173,7 +173,7 @@
    "partido": "União Brasil",
    "cargo": "Vice-Presidente",
    "url": "https://camarateresopolis.com.br/fidel-faria/",
-   "foto": "",
+   "foto": "fidel-faria.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -228,12 +228,12 @@
    "autoria": [],
    "temas": {
     "Saúde": 3,
-    "Finanças e impostos": 1,
     "Assistência social": 1,
-    "Segurança e iluminação": 1,
-    "Meio ambiente e saneamento": 1,
-    "Transporte e trânsito": 1,
+    "Finanças e impostos": 1,
     "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1,
+    "Transporte e trânsito": 1,
+    "Meio ambiente e saneamento": 1,
     "Servidores e administração": 1
    }
   },
@@ -243,7 +243,7 @@
    "partido": "PL",
    "cargo": "1º Secretário",
    "url": "https://camarateresopolis.com.br/paulinho-nogueira",
-   "foto": "",
+   "foto": "paulinho-nogueira.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -388,7 +388,7 @@
    "partido": "PRTB",
    "cargo": "2º Secretário",
    "url": "https://camarateresopolis.com.br/bruninho-almeida",
-   "foto": "",
+   "foto": "bruninho-almeida.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -461,7 +461,7 @@
    "partido": "Republicanos",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/professora-amanda",
-   "foto": "",
+   "foto": "professora-amanda.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -576,7 +576,7 @@
    "partido": "PP",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/andre-gas/",
-   "foto": "",
+   "foto": "andre-do-gas.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -644,7 +644,7 @@
    "partido": "Avante",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/caio-pfister",
-   "foto": "",
+   "foto": "caio-pfister.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -670,8 +670,8 @@
    "autoria": [],
    "temas": {
     "Assistência social": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -680,7 +680,7 @@
    "partido": "DC",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/dudu-resgate/",
-   "foto": "",
+   "foto": "dudu-do-resgate.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -765,9 +765,9 @@
     "Segurança e iluminação": 2,
     "Educação": 2,
     "Obras e urbanismo": 2,
+    "Assistência social": 1,
     "Saúde": 1,
     "Cultura, turismo e esporte": 1,
-    "Assistência social": 1,
     "Transporte e trânsito": 1
    }
   },
@@ -777,7 +777,7 @@
    "partido": "Solidariedade",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/diego-barbosa/",
-   "foto": "",
+   "foto": "diego-barbosa.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -864,7 +864,7 @@
    "partido": "PMB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/vereador-toto-online",
-   "foto": "",
+   "foto": "toto-online.webp",
    "mencoes": [
     {
      "noticia": 9368,
@@ -922,7 +922,7 @@
    "partido": "PDT",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/fabinho-file/",
-   "foto": "",
+   "foto": "fabinho-file.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -948,8 +948,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Cultura, turismo e esporte": 2,
     "Meio ambiente e saneamento": 2,
+    "Cultura, turismo e esporte": 2,
     "Agricultura": 1
    }
   },
@@ -959,7 +959,7 @@
    "partido": "Agir",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/hygor-faraco/",
-   "foto": "",
+   "foto": "hygor-faraco.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1054,7 +1054,7 @@
    "partido": "PRTB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/joao-miguel",
-   "foto": "",
+   "foto": "joao-miguel.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1084,7 +1084,7 @@
    "partido": "União Brasil",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/cacau-reporter/",
-   "foto": "",
+   "foto": "cacau-reporter.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1181,7 +1181,7 @@
    "partido": "PRTB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/marcia-valentim/",
-   "foto": "",
+   "foto": "marcia-valentim.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1265,7 +1265,7 @@
    "partido": "PP",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/marcos-rangel",
-   "foto": "",
+   "foto": "marcos-rangel.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1400,8 +1400,8 @@
     "Servidores e administração": 2,
     "Obras e urbanismo": 2,
     "Educação": 1,
-    "Homenagens e nomes": 1,
     "Saúde": 1,
+    "Homenagens e nomes": 1,
     "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
@@ -1412,7 +1412,7 @@
    "partido": "Republicanos",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/mauricio-lopes",
-   "foto": "",
+   "foto": "mauricio-lopes.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1477,8 +1477,8 @@
    ],
    "temas": {
     "Educação": 2,
-    "Cultura, turismo e esporte": 1,
     "Meio ambiente e saneamento": 1,
+    "Cultura, turismo e esporte": 1,
     "Finanças e impostos": 1
    }
   },
@@ -1488,7 +1488,7 @@
    "partido": "PL",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/cale-soares/",
-   "foto": "",
+   "foto": "cale.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1528,8 +1528,8 @@
    "temas": {
     "Assistência social": 2,
     "Animais": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -1538,7 +1538,7 @@
    "partido": "União Brasil",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/raimundo-amorim",
-   "foto": "",
+   "foto": "raimundo-amorim.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1672,7 +1672,7 @@
    "partido": "PL",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/pr-sandrinho/",
-   "foto": "",
+   "foto": "sandrinho.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1715,7 +1715,7 @@
    "partido": "Novo",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/vitinho/",
-   "foto": "",
+   "foto": "vitinho.webp",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1740,8 +1740,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Educação": 1,
     "Cultura, turismo e esporte": 1,
+    "Educação": 1,
     "Agricultura": 1
    }
   }
