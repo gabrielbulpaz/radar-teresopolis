@@ -130,6 +130,21 @@ def situacao_da_frase(frase_norm: str) -> str:
     return "citado"
 
 
+RX_RETOMADA = re.compile(r"^(a proposta|o projeto|o texto|a materia|a proposicao|a medida|ela|ele|o pl|o plc|a lei)\b")
+
+
+def situacao_com_contexto(frase_norm: str, frases_lista, i: int) -> str:
+    """Se a frase da citação não diz a situação, olha a seguinte quando ela
+    retoma o projeto ('A proposta foi aprovada por unanimidade.')."""
+    sit = situacao_da_frase(frase_norm)
+    if sit != "citado" or i + 1 >= len(frases_lista):
+        return sit
+    prox = normalizar(frases_lista[i + 1])
+    if RX_RETOMADA.search(prox) and not RX_PROPOSICAO.search(prox):
+        return situacao_da_frase(prox)
+    return sit
+
+
 def chave(sigla: str, numero: int, ano: int) -> str:
     return f"{sigla} {numero:03d}/{ano}"
 
@@ -176,6 +191,9 @@ def autoria(depois_norm: str, antes_norm: str, rx_vereadores):
     """
     m = re.search(r"\b(autoria|autor|autora)\b(.{0,90})", depois_norm)
     if not m:
+        # 'O vereador X apresentou/protocolou o PL 29/2026' -> X
+        if re.search(r"\b(apresentou|protocolou|propos|propoe|apresenta|protocola|e autora? d[oa]s?)\b[^.;]{0,40}$", antes_norm):
+            return _primeiro_vereador(antes_norm, rx_vereadores, ultimo=True)
         return None
     if re.search(r"\bde (sua|propria) autoria", depois_norm[: m.end(1) + 1]):
         return _primeiro_vereador(antes_norm, rx_vereadores, ultimo=True)
@@ -235,7 +253,7 @@ def processar(noticias, cadastro):
         todas = [titulo] + frases(texto)
         ver_aqui, props_aqui = [], []
 
-        for frase in todas:
+        for i, frase in enumerate(todas):
             fn = normalizar(frase)
             for slug, rx in rx_ver:
                 if rx.search(fn):
@@ -255,7 +273,7 @@ def processar(noticias, cadastro):
                         por_ver[autor]["autoria"].add(k)
                 if not any(m["noticia"] == n["id"] for m in p["mencoes"]):
                     p["mencoes"].append({"noticia": n["id"], "data": n["data"],
-                                         "situacao": situacao_da_frase(fn), "trecho": recortar(frase)})
+                                         "situacao": situacao_com_contexto(fn, todas, i), "trecho": recortar(frase)})
                 if k not in props_aqui:
                     props_aqui.append(k)
 

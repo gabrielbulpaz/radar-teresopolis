@@ -77,6 +77,18 @@ class TestFluxoCompleto(unittest.TestCase):
         self.assertIn("Finanças e impostos", self.props["PLC 003/2026"]["temas"])
         self.assertIn("Saúde", self.ver["dr-bento"]["temas"])
 
+    def test_situacao_na_frase_seguinte_e_autor_antes(self):
+        noticias = [{"id": 9, "data": "2026-04-28", "link": "#", "titulo": "Sessão ordinária",
+                     "html": "<p>Em sessão ordinária, o plenário votou o PLC 007/2026. A proposta foi aprovada por unanimidade.</p>"
+                             "<p>A vereadora Carla Modelo apresentou o PL nº 029/2026, que institui o Programa de Cultivo Orgânico.</p>"
+                             "<p>Foi citado o PL 040/2026. Ana Exemplo comentou o tema.</p>"}]
+        cadastro = json.loads((AQUI / "exemplo_vereadores.json").read_text(encoding="utf-8"))
+        props = {p["chave"]: p for p in P.processar(noticias, cadastro)["proposicoes"]}
+        self.assertEqual(props["PLC 007/2026"]["situacao"], "aprovado")
+        self.assertEqual(props["PL 029/2026"]["autores"], ["carla-modelo"])
+        self.assertEqual(props["PL 029/2026"]["situacao"], "apresentado")
+        self.assertEqual(props["PL 040/2026"]["situacao"], "citado")
+
     def test_sessoes(self):
         self.assertTrue(all(n["sessao"] for n in self.d["noticias"]))
         self.assertEqual(self.d["noticias"][0]["id"], 3)  # mais recente primeiro
