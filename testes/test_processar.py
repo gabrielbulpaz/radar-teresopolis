@@ -118,6 +118,21 @@ class TestFluxoCompleto(unittest.TestCase):
         p = P.processar(ns, cadastro)["proposicoes"][0]
         self.assertEqual((p["situacao"], p["data_situacao"]), ("aprovado", "2025-01-21"))
 
+    def test_descricao_dos_projetos(self):
+        html = ("<p>Entre os projetos estão: o PL nº 074/2026, de autoria do presidente Ana Exemplo, que garante prioridade na marcação de consultas; "
+                "o PL nº 075/2026, do vereador Dr. Bento, que institui a Campanha Abril Verde.</p>"
+                "<p>O PL nº 017/2026 propõe a obrigatoriedade de placas informativas em eventos públicos.</p>"
+                "<p>Projeto de Lei Complementar nº 001/2025:</p><p>De autoria do Poder Executivo Municipal, a proposta busca alterar a estrutura administrativa da Prefeitura.</p>"
+                "<p>Os vereadores aprovaram o PL 12/2026, das hortas.</p>")
+        cadastro = json.loads((AQUI / "exemplo_vereadores.json").read_text(encoding="utf-8"))
+        props = {p["chave"]: p for p in P.processar([{"id": 1, "data": "2026-01-01", "link": "#", "titulo": "S", "html": html}], cadastro)["proposicoes"]}
+        self.assertEqual(props["PL 074/2026"]["ementa"], "Garante prioridade na marcação de consultas")
+        self.assertEqual(props["PL 075/2026"]["ementa"], "Institui a Campanha Abril Verde")
+        self.assertEqual(props["PL 017/2026"]["ementa"], "Propõe a obrigatoriedade de placas informativas em eventos públicos")
+        self.assertEqual(props["PLC 001/2025"]["ementa"], "Alterar a estrutura administrativa da Prefeitura")
+        self.assertEqual(props["PLC 001/2025"]["autores"], ["Executivo"])
+        self.assertEqual(props["PL 012/2026"]["ementa"], "")
+
     def test_sessoes(self):
         self.assertTrue(all(n["sessao"] for n in self.d["noticias"]))
         self.assertEqual(self.d["noticias"][0]["id"], 3)  # mais recente primeiro

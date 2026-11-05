@@ -15,6 +15,7 @@ Uso:
 """
 
 import argparse
+import csv
 import html
 import json
 import re
@@ -182,10 +183,69 @@ def _cabecalho_de_grupo(frases_lista, i: int):
 
 def autor_do_contexto(frases_lista, i: int, rx_vereadores):
     """'X apresentou dois projetos de sua autoria. O PL 17/2026 propõe...' -> X"""
+    if frases_lista[i].rstrip().endswith(":") and i + 1 < len(frases_lista):
+        prox = normalizar(frases_lista[i + 1])
+        m = re.match(r"(tambem )?de autoria d[oa] (.{0,60})", prox)
+        if m:
+            if re.search(r"executivo|prefeit", m.group(2)):
+                return "Executivo"
+            if "mesa" in m.group(2):
+                return "Mesa Diretora"
+            achado = _primeiro_vereador(m.group(2), rx_vereadores)
+            if achado:
+                return achado
     cab = _cabecalho_de_grupo(frases_lista, i)
     if not cab or not re.search(r"\b(de sua autoria|apresentou|protocolou)\b", cab):
         return None
     return _primeiro_vereador(cab, rx_vereadores, ultimo=True)
+
+
+VERBOS_EMENTA = (r"(propoe|institui|cria|altera|dispoe|concede|garante|autoriza|regulamenta|revoga|denomina|declara|"
+                 r"reconhece|modifica|estabelece|inclui|obriga|proibe|determina|corrige|atualiza|amplia|reforca|"
+                 r"fixa|torna|preve|disciplina|assegura|confere|homenageia|regula|implanta|implementa|permite|"
+                 r"destina|reajusta|aumenta|reduz|suspende|transforma|unifica|oficializa|"
+                 r"alterou|criou|instituiu|autorizou|revogou|estabeleceu|concedeu|regulamentou)")
+RX_VERBO = re.compile(r"\b" + VERBOS_EMENTA + r"\b")
+
+
+def _limpar_ementa(texto: str, limite: int = 220) -> str:
+    t = re.split(r"[;\n]|\.\s|\.$", texto, maxsplit=1)[0].strip(" ,:-–—")
+    if len(t) > limite:
+        t = t[: limite - 1].rsplit(" ", 1)[0] + "…"
+    return t[:1].upper() + t[1:] if t else ""
+
+
+def ementa_da_frase(frase: str, frase_norm: str, fim: int):
+    """'..., PL 74/2026, de autoria de X, que garante prioridade...' -> 'Garante prioridade...'"""
+    if len(frase) != len(frase_norm):  # normalização mudou o tamanho; não dá para mapear
+        return None
+    resto_n, resto = frase_norm[fim:fim + 400], frase[fim:fim + 400]
+    # Corta na próxima proposição só quando é uma lista ('...; o PL 75/2026'),
+    # não quando a descrição cita uma lei ('que revoga a Lei Complementar 351/2025').
+    for prox in RX_PROPOSICAO.finditer(resto_n):
+        if re.search(r"(;|,|\be)\s*(o|a|os|as)?\s*$", resto_n[:prox.start()]):
+            resto_n, resto = resto_n[:prox.start()], resto[:prox.start()]
+            break
+    m = RX_VERBO.search(resto_n[:220])
+    if not m or ";" in resto_n[:m.start()]:
+        return None
+    return _limpar_ementa(resto[m.start():]) or None
+
+
+def ementa_do_contexto(frases_lista, i: int):
+    """Item de lista ('Projeto de Lei nº 1/2025:') com a descrição nas frases seguintes."""
+    if not frases_lista[i].rstrip().endswith(":"):
+        return None
+    for prox in frases_lista[i + 1:i + 4]:
+        pn = normalizar(prox)
+        if RX_PROPOSICAO.search(pn):
+            return None
+        m = re.search(r"\b(busca|visa|pretende|tem como objetivo)\s+(.+)", prox, flags=re.I)
+        if m and len(prox) == len(pn):
+            return _limpar_ementa(m.group(2))
+        if RX_VERBO.match(pn):
+            return _limpar_ementa(prox)
+    return None
 
 
 def chave(sigla: str, numero: int, ano: int) -> str:
@@ -261,15 +321,17 @@ def autoria(depois_norm: str, antes_norm: str, rx_vereadores):
 # ---------------------------------------------------------------- temas
 # Palavras-chave (sem acento, minúsculas) que indicam o assunto. Edite à vontade.
 TEMAS = {
-    "Saúde": r"saude|hospital|posto de saude|medic|\bupa\b|vacina|radioterapia|enfermag",
+    "Saúde": r"saude|hospital|posto de saude|medic|\bupa\b|vacina|radioterapia|enfermag|doenca|psicolog|endemias",
     "Educação": r"escola|educac|creche|professor|aluno|ensino",
     "Transporte e trânsito": r"transporte|onibus|transito|mobilidade|ciclomotor|bicicleta|estrada|trenzinho|guincho",
-    "Obras e urbanismo": r"\bobras?\b|paviment|asfalt|calcament|manilha|drenagem|ponte|urbanis|edific|andares|construc|zoneamento",
+    "Obras e urbanismo": r"\bobras?\b|paviment|asfalt|calcament|manilha|drenagem|ponte|urbanis|edific|andares|construc|zoneamento|\brua\b|logradouro",
     "Meio ambiente e saneamento": r"ambient|arvore|residuo|\blixo|recicla|catador|\baguas?\b|esgoto|saneamento|ecolog",
     "Animais": r"\banima(l|is)\b|castra|\bcaes\b|\bgatos?\b|\bpets?\b",
     "Assistência social": r"assistencia social|pobreza|alimentar|idoso|deficiencia|\bpcd\b|crianca|adolescen|mulher|violencia",
-    "Finanças e impostos": r"tribut|imposto|\biss\b|iptu|orcament|\bldo\b|\bloa\b|\bppa\b|prestacao de contas|contas do executivo|fiscal|emendas? parlamentar",
-    "Cultura, turismo e esporte": r"turis|cultura|festa|feira|artesan|musica|esporte|lazer|carnaval",
+    "Finanças e impostos": r"tribut|imposto|\biss\b|iptu|orcament|\bldo\b|\bloa\b|\bppa\b|prestacao de contas|contas do executivo|fiscal|emendas? parlamentar|emprestimo|credito|calamidade financeira",
+    "Servidores e administração": r"servidor|cargos? publico|estrutura administrativa|secretaria municipal|regimento interno|remunera|salari|revisao geral|transparencia|recursos publicos",
+    "Agricultura": r"agric|organico|agroecolog|produtor(es)? rura|lavoura|hortifruti",
+    "Cultura, turismo e esporte": r"turis|cultura|festa|feira|artesan|musica|esporte|lazer|carnaval|gastronom|patrimonio historico",
     "Segurança e iluminação": r"seguranca|guarda municipal|policia|iluminacao",
     "Homenagens e nomes": r"homenag|cidadao honorario|titulo de cidad|\bmocao|mocoes|denomina|medalha|utilidade publica",
 }
@@ -324,9 +386,13 @@ def processar(noticias, cadastro):
                     p["autores"].add(autor)
                     if autor in por_ver:
                         por_ver[autor]["autoria"].add(k)
-                if not any(m["noticia"] == n["id"] for m in p["mencoes"]):
+                ja = next((m for m in p["mencoes"] if m["noticia"] == n["id"]), None)
+                if ja and not ja.get("ementa"):
+                    ja["ementa"] = ementa_da_frase(frase, fn, fim) or ementa_do_contexto(todas, i)
+                if not ja:
                     p["mencoes"].append({"noticia": n["id"], "data": n["data"],
-                                         "situacao": situacao_com_contexto(fn, todas, i, sigla), "trecho": recortar(frase)})
+                                         "situacao": situacao_com_contexto(fn, todas, i, sigla), "trecho": recortar(frase),
+                                         "ementa": ementa_da_frase(frase, fn, fim) or ementa_do_contexto(todas, i)})
                 if k not in props_aqui:
                     props_aqui.append(k)
 
@@ -345,7 +411,10 @@ def processar(noticias, cadastro):
         ultima = informativas[-1]
         p["situacao"], p["data_situacao"] = ultima["situacao"], ultima["data"]
         p["autores"] = sorted(p["autores"])
-        p["temas"] = temas_de(normalizar(" ".join(m["trecho"] for m in p["mencoes"])))
+        ementas = [m["ementa"] for m in p["mencoes"] if m.get("ementa")]
+        p["ementa"] = max(ementas, key=len) if ementas else ""
+        # Temas pela descrição quando existe; senão, pelos trechos (que podem falar de outros projetos).
+        p["temas"] = temas_de(normalizar(p["ementa"] or " ".join(m["trecho"] for m in p["mencoes"])))
         lista_props.append(p)
     lista_props.sort(key=lambda p: (-p["ano"], p["tipo"], -p["numero"]))
 
@@ -354,6 +423,7 @@ def processar(noticias, cadastro):
         d = por_ver[v["slug"]]
         lista_ver.append({
             **{k: v[k] for k in ("slug", "nome", "partido", "cargo", "url")},
+            "foto": v.get("foto", ""),
             "mencoes": [{"noticia": nid, "trechos": t} for nid, t in d["noticias"].items()],
             "autoria": sorted(d["autoria"]),
             "temas": _contar_temas(d["noticias"].values()),
@@ -367,6 +437,32 @@ def processar(noticias, cadastro):
         "proposicoes": lista_props,
         "noticias": list(reversed(saida_noticias)),
     }
+
+
+def exportar_abertos(dados, pasta: Path):
+    """Arquivos para download no site: CSV (abre no Excel) e JSON."""
+    pasta.mkdir(parents=True, exist_ok=True)
+    nomes = {v["slug"]: v["nome"] for v in dados["vereadores"]}
+    links = {n["id"]: n["link"] for n in dados["noticias"]}
+    autor = lambda a: nomes.get(a, a)
+
+    def gravar(nome, cab, linhas):
+        with open(pasta / nome, "w", newline="", encoding="utf-8-sig") as f:
+            w = csv.writer(f, delimiter=";")
+            w.writerow(cab)
+            w.writerows(linhas)
+
+    gravar("projetos.csv", ["projeto", "tipo", "numero", "ano", "descricao", "situacao", "data_situacao", "autores", "temas", "noticias"],
+           [[p["chave"], p["tipo_nome"], p["numero"], p["ano"], p["ementa"], p["situacao"], p["data_situacao"],
+             ", ".join(map(autor, p["autores"])), ", ".join(p["temas"]), " ".join(links.get(m["noticia"], "") for m in p["mencoes"])]
+            for p in dados["proposicoes"]])
+    aprov = lambda v: sum(1 for k in v["autoria"] if any(p["chave"] == k and p["situacao"] == "aprovado" for p in dados["proposicoes"]))
+    gravar("vereadores.csv", ["vereador", "partido", "cargo", "noticias_que_citam", "projetos_de_autoria", "aprovados", "pagina_oficial"],
+           [[v["nome"], v["partido"], v["cargo"], len(v["mencoes"]), len(v["autoria"]), aprov(v), v["url"]] for v in dados["vereadores"]])
+    gravar("noticias.csv", ["data", "titulo", "link", "vereadores", "projetos", "temas"],
+           [[n["data"], n["titulo"], n["link"], ", ".join(map(autor, n["vereadores"])), ", ".join(n["proposicoes"]), ", ".join(n["temas"])]
+            for n in dados["noticias"]])
+    (pasta / "radar.json").write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def main():
@@ -385,6 +481,7 @@ def main():
     args.saida.parent.mkdir(parents=True, exist_ok=True)
     args.saida.write_text("window.DADOS = " + json.dumps(dados, ensure_ascii=False) + ";\n", encoding="utf-8")
     (RAIZ / "dados").mkdir(exist_ok=True)
+    exportar_abertos(dados, args.saida.parent / "dados")
     if not args.demo:
         (RAIZ / "dados" / "radar.json").write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(dados['noticias'])} notícias, {len(dados['proposicoes'])} proposições -> {args.saida}")

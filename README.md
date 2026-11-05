@@ -19,3 +19,18 @@ https://camarateresopolis.com.br/wp-json/wp/v2/posts
 ```
 
 As notícias relatam cada sessão: projetos lidos, aprovados, rejeitados, quem é autor e quem discursou. O `processar.py` lê esse texto e organiza.
+
+## Configuração rápida
+
+Edite `site/config.js`:
+- `erroUrl`: link de um Google Forms para o botão "Encontrou um erro?". Sem ele, o botão abre uma issue no GitHub (exige conta).
+- `contatoEmail`: e-mail exibido na página "Como funciona".
+- `goatcounter`: código de uma conta grátis do GoatCounter, para contar acessos sem cookies.
+
+Fotos dos vereadores (opcional): veja `site/fotos/LEIAME.md`.
+
+Imagem de prévia de link (WhatsApp, redes): `site/og.png`. Se o endereço do site mudar, atualize as tags `og:` em `site/index.html` e `siteUrl` em `site/config.js`.
+
+## Licenças
+
+Código: MIT. Dados: CC BY 4.0 (cite "Radar da Câmara de Teresópolis"). Detalhes em `LICENSE`.
