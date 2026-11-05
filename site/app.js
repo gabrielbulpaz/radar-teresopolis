@@ -467,6 +467,7 @@
         <p><b>Neutralidade.</b> O Radar não dá notas, não faz ranking de melhores ou piores e não tem lado político. Não aceita dinheiro de políticos, partidos ou candidatos.</p>
         <p><b>Correções.</b> Erros apontados são corrigidos e o histórico de mudanças fica público no código do projeto.</p>
         <p><b>Direito de resposta.</b> Vereadores e assessorias podem pedir correções ou esclarecimentos pelo mesmo canal.</p>
+        <p><b>Fotos.</b> As fotos dos vereadores são da Câmara Municipal de Teresópolis.</p>
         <p><b>Privacidade.</b> O site não usa cookies nem pede cadastro. Os vereadores que você segue ficam salvos apenas no seu navegador.</p>
         ${CFG.contatoEmail ? `<p><b>Contato.</b> <span style="user-select:all">${esc(CFG.contatoEmail)}</span></p>` : ""}
         <div class="acoes" style="margin-top:12px"><a class="botao primario" href="${esc(linkErro("geral"))}" target="_blank" rel="noopener">${ICON.erro}Reportar um erro</a>${CFG.repoUrl ? `<a class="botao secundario" href="${esc(CFG.repoUrl)}" target="_blank" rel="noopener">Ver o código</a>` : ""}</div>

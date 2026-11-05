@@ -2,26 +2,248 @@
   "_nota": "Lista da legislatura 2025-2028, conforme camarateresopolis.com.br/vereadores-2025-2028 (consultado em 04/11/2026). Partidos podem ter mudado na janela partidária de 2026: confira e edite aqui. 'apelidos' são as formas como o nome aparece nas notícias; a busca ignora acentos e maiúsculas.",
   "fonte": "https://camarateresopolis.com.br/vereadores-2025-2028/",
   "vereadores": [
-    {"slug": "luciano-santos", "nome": "Luciano Santos", "partido": "DC", "cargo": "Presidente", "url": "https://camarateresopolis.com.br/luciano-santos/", "apelidos": ["Luciano Santos"]},
-    {"slug": "fidel-faria", "nome": "Fidel Faria", "partido": "União Brasil", "cargo": "Vice-Presidente", "url": "https://camarateresopolis.com.br/fidel-faria/", "apelidos": ["Fidel Faria"]},
-    {"slug": "paulinho-nogueira", "nome": "Paulinho Nogueira", "partido": "PL", "cargo": "1º Secretário", "url": "https://camarateresopolis.com.br/paulinho-nogueira", "apelidos": ["Paulinho Nogueira"]},
-    {"slug": "bruninho-almeida", "nome": "Bruninho Almeida", "partido": "PRTB", "cargo": "2º Secretário", "url": "https://camarateresopolis.com.br/bruninho-almeida", "apelidos": ["Bruninho Almeida", "Bruninha Almeida"]},
-    {"slug": "professora-amanda", "nome": "Professora Amanda", "partido": "Republicanos", "cargo": "", "url": "https://camarateresopolis.com.br/professora-amanda", "apelidos": ["Professora Amanda", "Prof. Amanda", "Profa. Amanda"]},
-    {"slug": "andre-do-gas", "nome": "André do Gás", "partido": "PP", "cargo": "", "url": "https://camarateresopolis.com.br/andre-gas/", "apelidos": ["André do Gás", "André Gás"]},
-    {"slug": "caio-pfister", "nome": "Caio Pfister", "partido": "Avante", "cargo": "", "url": "https://camarateresopolis.com.br/caio-pfister", "apelidos": ["Caio Pfister"]},
-    {"slug": "dudu-do-resgate", "nome": "Dudu do Resgate", "partido": "DC", "cargo": "", "url": "https://camarateresopolis.com.br/dudu-resgate/", "apelidos": ["Dudu do Resgate"]},
-    {"slug": "diego-barbosa", "nome": "Diego Barbosa", "partido": "Solidariedade", "cargo": "", "url": "https://camarateresopolis.com.br/diego-barbosa/", "apelidos": ["Diego Barbosa"]},
-    {"slug": "toto-online", "nome": "Totó Online", "partido": "PMB", "cargo": "", "url": "https://camarateresopolis.com.br/vereador-toto-online", "apelidos": ["Totó Online"]},
-    {"slug": "fabinho-file", "nome": "Fabinho Filé", "partido": "PDT", "cargo": "", "url": "https://camarateresopolis.com.br/fabinho-file/", "apelidos": ["Fabinho Filé"]},
-    {"slug": "hygor-faraco", "nome": "Hygor Faraco", "partido": "Agir", "cargo": "", "url": "https://camarateresopolis.com.br/hygor-faraco/", "apelidos": ["Hygor Faraco"]},
-    {"slug": "joao-miguel", "nome": "João Miguel", "partido": "PRTB", "cargo": "", "url": "https://camarateresopolis.com.br/joao-miguel", "apelidos": ["João Miguel"]},
-    {"slug": "cacau-reporter", "nome": "Cacau Repórter", "partido": "União Brasil", "cargo": "", "url": "https://camarateresopolis.com.br/cacau-reporter/", "apelidos": ["Cacau Repórter"]},
-    {"slug": "marcia-valentim", "nome": "Márcia Valentim", "partido": "PRTB", "cargo": "", "url": "https://camarateresopolis.com.br/marcia-valentim/", "apelidos": ["Márcia Valentim"]},
-    {"slug": "marcos-rangel", "nome": "Marcos Rangel", "partido": "PP", "cargo": "", "url": "https://camarateresopolis.com.br/marcos-rangel", "apelidos": ["Marcos Rangel", "Rangel"]},
-    {"slug": "mauricio-lopes", "nome": "Maurício Lopes", "partido": "Republicanos", "cargo": "", "url": "https://camarateresopolis.com.br/mauricio-lopes", "apelidos": ["Maurício Lopes"]},
-    {"slug": "cale", "nome": "Calé", "partido": "PL", "cargo": "", "url": "https://camarateresopolis.com.br/cale-soares/", "apelidos": ["Calé", "Calé dos Bairros", "Calé Soares"]},
-    {"slug": "raimundo-amorim", "nome": "Dr. Raimundo Amorim", "partido": "União Brasil", "cargo": "", "url": "https://camarateresopolis.com.br/raimundo-amorim", "apelidos": ["Dr. Amorim", "Raimundo Amorim", "Dr. Raimundo Amorim"]},
-    {"slug": "sandrinho", "nome": "Pr. Sandrinho", "partido": "PL", "cargo": "", "url": "https://camarateresopolis.com.br/pr-sandrinho/", "apelidos": ["Sandrinho", "Pr. Sandrinho", "Pastor Sandrinho"]},
-    {"slug": "vitinho", "nome": "Vitinho", "partido": "Novo", "cargo": "", "url": "https://camarateresopolis.com.br/vitinho/", "apelidos": ["Vitinho"]}
-  ]
+    {
+      "slug": "luciano-santos",
+      "nome": "Luciano Santos",
+      "partido": "DC",
+      "cargo": "Presidente",
+      "url": "https://camarateresopolis.com.br/luciano-santos/",
+      "apelidos": [
+        "Luciano Santos"
+      ],
+      "foto": "luciano-santos.webp"
+    },
+    {
+      "slug": "fidel-faria",
+      "nome": "Fidel Faria",
+      "partido": "União Brasil",
+      "cargo": "Vice-Presidente",
+      "url": "https://camarateresopolis.com.br/fidel-faria/",
+      "apelidos": [
+        "Fidel Faria"
+      ],
+      "foto": "fidel-faria.webp"
+    },
+    {
+      "slug": "paulinho-nogueira",
+      "nome": "Paulinho Nogueira",
+      "partido": "PL",
+      "cargo": "1º Secretário",
+      "url": "https://camarateresopolis.com.br/paulinho-nogueira",
+      "apelidos": [
+        "Paulinho Nogueira"
+      ],
+      "foto": "paulinho-nogueira.webp"
+    },
+    {
+      "slug": "bruninho-almeida",
+      "nome": "Bruninho Almeida",
+      "partido": "PRTB",
+      "cargo": "2º Secretário",
+      "url": "https://camarateresopolis.com.br/bruninho-almeida",
+      "apelidos": [
+        "Bruninho Almeida",
+        "Bruninha Almeida"
+      ],
+      "foto": "bruninho-almeida.webp"
+    },
+    {
+      "slug": "professora-amanda",
+      "nome": "Professora Amanda",
+      "partido": "Republicanos",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/professora-amanda",
+      "apelidos": [
+        "Professora Amanda",
+        "Prof. Amanda",
+        "Profa. Amanda"
+      ],
+      "foto": "professora-amanda.webp"
+    },
+    {
+      "slug": "andre-do-gas",
+      "nome": "André do Gás",
+      "partido": "PP",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/andre-gas/",
+      "apelidos": [
+        "André do Gás",
+        "André Gás"
+      ],
+      "foto": "andre-do-gas.webp"
+    },
+    {
+      "slug": "caio-pfister",
+      "nome": "Caio Pfister",
+      "partido": "Avante",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/caio-pfister",
+      "apelidos": [
+        "Caio Pfister"
+      ],
+      "foto": "caio-pfister.webp"
+    },
+    {
+      "slug": "dudu-do-resgate",
+      "nome": "Dudu do Resgate",
+      "partido": "DC",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/dudu-resgate/",
+      "apelidos": [
+        "Dudu do Resgate"
+      ],
+      "foto": "dudu-do-resgate.webp"
+    },
+    {
+      "slug": "diego-barbosa",
+      "nome": "Diego Barbosa",
+      "partido": "Solidariedade",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/diego-barbosa/",
+      "apelidos": [
+        "Diego Barbosa"
+      ],
+      "foto": "diego-barbosa.webp"
+    },
+    {
+      "slug": "toto-online",
+      "nome": "Totó Online",
+      "partido": "PMB",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/vereador-toto-online",
+      "apelidos": [
+        "Totó Online"
+      ],
+      "foto": "toto-online.webp"
+    },
+    {
+      "slug": "fabinho-file",
+      "nome": "Fabinho Filé",
+      "partido": "PDT",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/fabinho-file/",
+      "apelidos": [
+        "Fabinho Filé"
+      ],
+      "foto": "fabinho-file.webp"
+    },
+    {
+      "slug": "hygor-faraco",
+      "nome": "Hygor Faraco",
+      "partido": "Agir",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/hygor-faraco/",
+      "apelidos": [
+        "Hygor Faraco"
+      ],
+      "foto": "hygor-faraco.webp"
+    },
+    {
+      "slug": "joao-miguel",
+      "nome": "João Miguel",
+      "partido": "PRTB",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/joao-miguel",
+      "apelidos": [
+        "João Miguel"
+      ],
+      "foto": "joao-miguel.webp"
+    },
+    {
+      "slug": "cacau-reporter",
+      "nome": "Cacau Repórter",
+      "partido": "União Brasil",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/cacau-reporter/",
+      "apelidos": [
+        "Cacau Repórter"
+      ],
+      "foto": "cacau-reporter.webp"
+    },
+    {
+      "slug": "marcia-valentim",
+      "nome": "Márcia Valentim",
+      "partido": "PRTB",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/marcia-valentim/",
+      "apelidos": [
+        "Márcia Valentim"
+      ],
+      "foto": "marcia-valentim.webp"
+    },
+    {
+      "slug": "marcos-rangel",
+      "nome": "Marcos Rangel",
+      "partido": "PP",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/marcos-rangel",
+      "apelidos": [
+        "Marcos Rangel",
+        "Rangel"
+      ],
+      "foto": "marcos-rangel.webp"
+    },
+    {
+      "slug": "mauricio-lopes",
+      "nome": "Maurício Lopes",
+      "partido": "Republicanos",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/mauricio-lopes",
+      "apelidos": [
+        "Maurício Lopes"
+      ],
+      "foto": "mauricio-lopes.webp"
+    },
+    {
+      "slug": "cale",
+      "nome": "Calé",
+      "partido": "PL",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/cale-soares/",
+      "apelidos": [
+        "Calé",
+        "Calé dos Bairros",
+        "Calé Soares"
+      ],
+      "foto": "cale.webp"
+    },
+    {
+      "slug": "raimundo-amorim",
+      "nome": "Dr. Raimundo Amorim",
+      "partido": "União Brasil",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/raimundo-amorim",
+      "apelidos": [
+        "Dr. Amorim",
+        "Raimundo Amorim",
+        "Dr. Raimundo Amorim"
+      ],
+      "foto": "raimundo-amorim.webp"
+    },
+    {
+      "slug": "sandrinho",
+      "nome": "Pr. Sandrinho",
+      "partido": "PL",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/pr-sandrinho/",
+      "apelidos": [
+        "Sandrinho",
+        "Pr. Sandrinho",
+        "Pastor Sandrinho"
+      ],
+      "foto": "sandrinho.webp"
+    },
+    {
+      "slug": "vitinho",
+      "nome": "Vitinho",
+      "partido": "Novo",
+      "cargo": "",
+      "url": "https://camarateresopolis.com.br/vitinho/",
+      "apelidos": [
+        "Vitinho"
+      ],
+      "foto": "vitinho.webp"
+    }
+  ],
+  "fonte_fotos": "Câmara Municipal de Teresópolis"
 }
