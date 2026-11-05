@@ -116,7 +116,7 @@ a.cifra:hover{border-color:var(--mata)}
 .legenda a{text-decoration:none;color:var(--granito);display:inline-flex;gap:6px;align-items:center}
 .legenda i{width:12px;height:12px;border-radius:3px;display:inline-block}
 .c-aprovado{background:var(--ok)} .c-rejeitado,.c-vetado{background:var(--nao)}
-.c-em-comissao,.c-lido-em-plenario,.c-apresentado,.c-adiado{background:var(--estrela)} .c-citado{background:var(--neutro)}
+.c-em-comissao,.c-lido-em-plenario,.c-apresentado,.c-adiado{background:var(--estrela)} .c-citado,.c-lei-citada{background:var(--neutro)} .c-revogada{background:var(--granito)}
 
 /* barras horizontais de temas */
 .hbarras{display:flex;flex-direction:column;gap:6px}
@@ -161,6 +161,7 @@ a.cifra:hover{border-color:var(--mata)}
 .situacao{display:inline-block;font-size:14px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--neutro-bg);color:var(--pedra);white-space:nowrap}
 .s-aprovado{background:var(--ok-bg);color:var(--ok)}
 .s-rejeitado,.s-vetado{background:var(--nao-bg);color:var(--nao)}
+.s-revogada{background:var(--granito);color:var(--neblina)}
 .s-em-comissao,.s-adiado,.s-lido-em-plenario,.s-apresentado{background:var(--espera-bg);color:var(--espera)}
 
 .prop{padding:14px 18px}
@@ -272,7 +273,7 @@ footer p{max-width:70ch;margin:0 0 8px}
   const nomeAutor = a => vereador[a] ? `<a href="#/vereador/${a}">${esc(vereador[a].nome)}</a>` : esc(a);
   const deAutor = a => (a === "Executivo" ? "do " : a === "Mesa Diretora" ? "da " : "de ") + nomeAutor(a);
   const temaDeSlug = s => TEMAS.find(t => slug(t) === s);
-  const SIT_ORDEM = ["aprovado", "rejeitado", "vetado", "em comissão", "lido em plenário", "apresentado", "adiado", "citado"];
+  const SIT_ORDEM = ["aprovado", "rejeitado", "vetado", "em comissão", "lido em plenário", "apresentado", "adiado", "citado", "revogada", "lei citada"];
 
   const TEMAS = [...new Set([...D.proposicoes.flatMap(p => p.temas || []), ...D.noticias.flatMap(n => n.temas || [])])].sort();
 

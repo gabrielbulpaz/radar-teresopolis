@@ -89,6 +89,35 @@ class TestFluxoCompleto(unittest.TestCase):
         self.assertEqual(props["PL 029/2026"]["situacao"], "apresentado")
         self.assertEqual(props["PL 040/2026"]["situacao"], "citado")
 
+    def test_padroes_reais_da_camara(self):
+        html = ("<p>Os vereadores votaram os seguintes projetos:</p>"
+                "<p>1. Projeto de Lei Complementar nº 001/2025:</p><p>De autoria do Poder Executivo, altera a estrutura administrativa.</p>"
+                "<p>O projeto foi aprovado com 19 votos favoráveis.</p>"
+                "<p>2. Projeto de Lei nº 001/2025:</p><p>Modifica a lei da Feirarte.</p>"
+                "<p>Na pauta, o plenário aprovou em bloco projetos de lei e moções. Entre os projetos com votação destacada estão: o PL nº 074/2026, que garante prioridade em consultas.</p>"
+                "<p>A vereadora Carla Modelo apresentou dois projetos de lei de sua autoria. O PL nº 017/2026 propõe placas informativas. Já o PL nº 018/2026 institui um diagnóstico.</p>"
+                "<p>Foi citado também o PL nº 080/2026, do vereador Dr. Bento, que cria a semana do idoso.</p>"
+                "<p>O plenário revogou a Lei Complementar nº 351/2025. A norma citada na Lei Complementar nº 182/2014 foi mantida.</p>")
+        cadastro = json.loads((AQUI / "exemplo_vereadores.json").read_text(encoding="utf-8"))
+        d = P.processar([{"id": 1, "data": "2026-04-28", "link": "#", "titulo": "Sessão", "html": html}], cadastro)
+        props = {p["chave"]: p for p in d["proposicoes"]}
+        self.assertEqual(props["PLC 001/2025"]["situacao"], "aprovado")
+        self.assertEqual(props["PL 001/2025"]["situacao"], "citado")  # nada diz que foi votado
+        self.assertEqual(props["PL 074/2026"]["situacao"], "aprovado")
+        self.assertEqual(props["PL 017/2026"]["autores"], ["carla-modelo"])
+        self.assertEqual(props["PL 018/2026"]["autores"], ["carla-modelo"])
+        self.assertEqual(props["PL 018/2026"]["situacao"], "apresentado")
+        self.assertEqual(props["PL 080/2026"]["autores"], ["dr-bento"])
+        self.assertEqual(props["LC 351/2025"]["situacao"], "revogada")
+        self.assertEqual(props["LC 182/2014"]["situacao"], "lei citada")
+
+    def test_citacao_posterior_nao_apaga_aprovacao(self):
+        cadastro = json.loads((AQUI / "exemplo_vereadores.json").read_text(encoding="utf-8"))
+        ns = [{"id": 1, "data": "2025-01-21", "link": "#", "titulo": "Sessão", "html": "<p>O Projeto de Resolução nº 001/2025 foi aprovado.</p>"},
+              {"id": 2, "data": "2025-02-18", "link": "#", "titulo": "Sessão", "html": "<p>O horário segue o Projeto de Resolução nº 001/2025. Ele mudou as sessões. O Executivo encaminhou o Projeto de Lei da LDO às comissões.</p>"}]
+        p = P.processar(ns, cadastro)["proposicoes"][0]
+        self.assertEqual((p["situacao"], p["data_situacao"]), ("aprovado", "2025-01-21"))
+
     def test_sessoes(self):
         self.assertTrue(all(n["sessao"] for n in self.d["noticias"]))
         self.assertEqual(self.d["noticias"][0]["id"], 3)  # mais recente primeiro

@@ -130,19 +130,62 @@ def situacao_da_frase(frase_norm: str) -> str:
     return "citado"
 
 
-RX_RETOMADA = re.compile(r"^(a proposta|o projeto|o texto|a materia|a proposicao|a medida|ela|ele|o pl|o plc|a lei)\b")
+RX_RETOMADA = re.compile(r"^(e |ja |depois,? |em seguida,? |entao,? )?(a proposta|o projeto|o texto|a materia|a proposicao|a medida|ela|ele)\b")
+RX_GRUPO = re.compile(r"\b(em bloco|os seguintes|os projetos|projetos de lei|as propostas|as materias)\b")
 
 
-def situacao_com_contexto(frase_norm: str, frases_lista, i: int) -> str:
-    """Se a frase da citação não diz a situação, olha a seguinte quando ela
-    retoma o projeto ('A proposta foi aprovada por unanimidade.')."""
+def situacao_com_contexto(frase_norm: str, frases_lista, i: int, sigla: str = "PL") -> str:
+    """Situação da proposição, olhando o entorno quando a frase não diz.
+
+    - Leis citadas: 'revogada' ou 'lei citada' (não são projetos em tramitação).
+    - Frases seguintes que retomam o projeto ('A proposta foi aprovada...'),
+      até 4 frases, parando se outra proposição for citada (listas numeradas).
+    - Frase anterior que aprova/rejeita um grupo ('aprovou em bloco projetos...
+      Entre os projetos estão: o PL 74/2026...').
+    """
+    if sigla in ("LEI", "LC"):
+        return "revogada" if re.search(r"\brevog(ou|ad|ar|a\b)", frase_norm) else "lei citada"
     sit = situacao_da_frase(frase_norm)
-    if sit != "citado" or i + 1 >= len(frases_lista):
+    if sit != "citado":
         return sit
-    prox = normalizar(frases_lista[i + 1])
-    if RX_RETOMADA.search(prox) and not RX_PROPOSICAO.search(prox):
-        return situacao_da_frase(prox)
+    # Item de lista ('2. Projeto de Lei nº 001/2025:') olha até 4 frases à frente;
+    # nos demais casos, só a frase imediatamente seguinte.
+    alcance = 4 if frase_norm.rstrip().endswith(":") else 1
+    for prox in frases_lista[i + 1:i + 1 + alcance]:
+        pn = normalizar(prox)
+        if RX_PROPOSICAO.search(pn):
+            break
+        if RX_RETOMADA.search(pn):
+            s2 = situacao_da_frase(pn)
+            if s2 != "citado":
+                return s2
+    cab = _cabecalho_de_grupo(frases_lista, i)
+    if cab:
+        s2 = situacao_da_frase(cab)
+        if s2 in ("aprovado", "rejeitado", "apresentado"):
+            return s2
     return sit
+
+
+def _cabecalho_de_grupo(frases_lista, i: int):
+    """Frase anterior (até 3 atrás) que anuncia um grupo de projetos, sem número:
+    'aprovou em bloco projetos de lei...', 'apresentou dois projetos de sua autoria'."""
+    for j in range(i - 1, max(-1, i - 4), -1):
+        ant = normalizar(frases_lista[j])
+        if RX_PROPOSICAO.search(ant):
+            continue
+        if RX_GRUPO.search(ant) or re.search(r"\b(dois|duas|tres|dos|das) (projetos|propostas)", ant):
+            return ant
+        return None
+    return None
+
+
+def autor_do_contexto(frases_lista, i: int, rx_vereadores):
+    """'X apresentou dois projetos de sua autoria. O PL 17/2026 propõe...' -> X"""
+    cab = _cabecalho_de_grupo(frases_lista, i)
+    if not cab or not re.search(r"\b(de sua autoria|apresentou|protocolou)\b", cab):
+        return None
+    return _primeiro_vereador(cab, rx_vereadores, ultimo=True)
 
 
 def chave(sigla: str, numero: int, ano: int) -> str:
@@ -191,6 +234,16 @@ def autoria(depois_norm: str, antes_norm: str, rx_vereadores):
     """
     m = re.search(r"\b(autoria|autor|autora)\b(.{0,90})", depois_norm)
     if not m:
+        # '... PL 75/2026, do vereador X, que institui...' -> X
+        m2 = re.match(r"\s*,?\s*(do|da) (vereador|vereadora|presidente|presidenta|executivo|poder executivo|prefeit\w*|mesa diretora)\b(.{0,50})", depois_norm)
+        if m2:
+            if re.search(r"executivo|prefeit", m2.group(2)):
+                return "Executivo"
+            if m2.group(2) == "mesa diretora":
+                return "Mesa Diretora"
+            achado = _primeiro_vereador(m2.group(3), rx_vereadores)
+            if achado:
+                return achado
         # 'O vereador X apresentou/protocolou o PL 29/2026' -> X
         if re.search(r"\b(apresentou|protocolou|propos|propoe|apresenta|protocola|e autora? d[oa]s?)\b[^.;]{0,40}$", antes_norm):
             return _primeiro_vereador(antes_norm, rx_vereadores, ultimo=True)
@@ -266,14 +319,14 @@ def processar(noticias, cadastro):
                 k = chave(sigla, numero, ano)
                 p = props.setdefault(k, {"chave": k, "tipo": sigla, "tipo_nome": NOMES_TIPO[sigla],
                                          "numero": numero, "ano": ano, "autores": set(), "mencoes": []})
-                autor = autoria(fn[fim:fim + 200], fn[:ini], rx_ver)
+                autor = autoria(fn[fim:fim + 200], fn[:ini], rx_ver) or autor_do_contexto(todas, i, rx_ver)
                 if autor:
                     p["autores"].add(autor)
                     if autor in por_ver:
                         por_ver[autor]["autoria"].add(k)
                 if not any(m["noticia"] == n["id"] for m in p["mencoes"]):
                     p["mencoes"].append({"noticia": n["id"], "data": n["data"],
-                                         "situacao": situacao_com_contexto(fn, todas, i), "trecho": recortar(frase)})
+                                         "situacao": situacao_com_contexto(fn, todas, i, sigla), "trecho": recortar(frase)})
                 if k not in props_aqui:
                     props_aqui.append(k)
 
@@ -287,7 +340,9 @@ def processar(noticias, cadastro):
     lista_props = []
     for p in props.values():
         p["mencoes"].sort(key=lambda m: m["data"])
-        ultima = p["mencoes"][-1]
+        # A situação vem da notícia mais recente que diz algo além de "citado".
+        informativas = [m for m in p["mencoes"] if m["situacao"] != "citado"] or p["mencoes"]
+        ultima = informativas[-1]
         p["situacao"], p["data_situacao"] = ultima["situacao"], ultima["data"]
         p["autores"] = sorted(p["autores"])
         p["temas"] = temas_de(normalizar(" ".join(m["trecho"] for m in p["mencoes"])))
