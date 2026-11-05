@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-05T00:33:45+00:00",
+ "gerado_em": "2026-11-05T01:46:56+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -9,6 +9,7 @@
    "partido": "DC",
    "cargo": "Presidente",
    "url": "https://camarateresopolis.com.br/luciano-santos/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -158,10 +159,10 @@
     "Cultura, turismo e esporte": 7,
     "Saúde": 4,
     "Homenagens e nomes": 3,
-    "Finanças e impostos": 1,
+    "Finanças e impostos": 2,
+    "Meio ambiente e saneamento": 1,
     "Obras e urbanismo": 1,
     "Educação": 1,
-    "Meio ambiente e saneamento": 1,
     "Transporte e trânsito": 1,
     "Assistência social": 1
    }
@@ -172,6 +173,7 @@
    "partido": "União Brasil",
    "cargo": "Vice-Presidente",
    "url": "https://camarateresopolis.com.br/fidel-faria/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -228,10 +230,11 @@
     "Saúde": 3,
     "Assistência social": 1,
     "Finanças e impostos": 1,
-    "Obras e urbanismo": 1,
-    "Transporte e trânsito": 1,
     "Segurança e iluminação": 1,
-    "Meio ambiente e saneamento": 1
+    "Meio ambiente e saneamento": 1,
+    "Transporte e trânsito": 1,
+    "Obras e urbanismo": 1,
+    "Servidores e administração": 1
    }
   },
   {
@@ -240,6 +243,7 @@
    "partido": "PL",
    "cargo": "1º Secretário",
    "url": "https://camarateresopolis.com.br/paulinho-nogueira",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -368,10 +372,12 @@
    "temas": {
     "Homenagens e nomes": 3,
     "Finanças e impostos": 3,
+    "Obras e urbanismo": 3,
     "Educação": 2,
-    "Obras e urbanismo": 2,
     "Assistência social": 2,
     "Meio ambiente e saneamento": 1,
+    "Servidores e administração": 1,
+    "Agricultura": 1,
     "Cultura, turismo e esporte": 1,
     "Saúde": 1
    }
@@ -382,6 +388,7 @@
    "partido": "PRTB",
    "cargo": "2º Secretário",
    "url": "https://camarateresopolis.com.br/bruninho-almeida",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -454,6 +461,7 @@
    "partido": "Republicanos",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/professora-amanda",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -557,6 +565,7 @@
     "Assistência social": 5,
     "Saúde": 3,
     "Cultura, turismo e esporte": 3,
+    "Servidores e administração": 1,
     "Homenagens e nomes": 1,
     "Finanças e impostos": 1
    }
@@ -567,6 +576,7 @@
    "partido": "PP",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/andre-gas/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -634,6 +644,7 @@
    "partido": "Avante",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/caio-pfister",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -658,9 +669,9 @@
    ],
    "autoria": [],
    "temas": {
-    "Assistência social": 1,
     "Obras e urbanismo": 1,
-    "Segurança e iluminação": 1
+    "Segurança e iluminação": 1,
+    "Assistência social": 1
    }
   },
   {
@@ -669,6 +680,7 @@
    "partido": "DC",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/dudu-resgate/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -765,6 +777,7 @@
    "partido": "Solidariedade",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/diego-barbosa/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -841,7 +854,8 @@
     "Meio ambiente e saneamento": 3,
     "Assistência social": 2,
     "Segurança e iluminação": 1,
-    "Educação": 1
+    "Educação": 1,
+    "Agricultura": 1
    }
   },
   {
@@ -850,6 +864,7 @@
    "partido": "PMB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/vereador-toto-online",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 9368,
@@ -895,6 +910,7 @@
    "autoria": [],
    "temas": {
     "Cultura, turismo e esporte": 2,
+    "Servidores e administração": 1,
     "Educação": 1,
     "Obras e urbanismo": 1,
     "Saúde": 1
@@ -906,6 +922,7 @@
    "partido": "PDT",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/fabinho-file/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -932,7 +949,8 @@
    "autoria": [],
    "temas": {
     "Cultura, turismo e esporte": 2,
-    "Meio ambiente e saneamento": 2
+    "Meio ambiente e saneamento": 2,
+    "Agricultura": 1
    }
   },
   {
@@ -941,6 +959,7 @@
    "partido": "Agir",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/hygor-faraco/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1035,6 +1054,7 @@
    "partido": "PRTB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/joao-miguel",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1064,6 +1084,7 @@
    "partido": "União Brasil",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/cacau-reporter/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1150,6 +1171,7 @@
     "Cultura, turismo e esporte": 2,
     "Obras e urbanismo": 2,
     "Transporte e trânsito": 1,
+    "Servidores e administração": 1,
     "Animais": 1
    }
   },
@@ -1159,6 +1181,7 @@
    "partido": "PRTB",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/marcia-valentim/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1242,6 +1265,7 @@
    "partido": "PP",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/marcos-rangel",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1373,10 +1397,11 @@
     "Segurança e iluminação": 4,
     "Meio ambiente e saneamento": 3,
     "Finanças e impostos": 2,
+    "Servidores e administração": 2,
     "Obras e urbanismo": 2,
     "Educação": 1,
-    "Saúde": 1,
     "Homenagens e nomes": 1,
+    "Saúde": 1,
     "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
@@ -1387,6 +1412,7 @@
    "partido": "Republicanos",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/mauricio-lopes",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1462,6 +1488,7 @@
    "partido": "PL",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/cale-soares/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1511,6 +1538,7 @@
    "partido": "União Brasil",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/raimundo-amorim",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1632,6 +1660,7 @@
     "Saúde": 4,
     "Cultura, turismo e esporte": 3,
     "Homenagens e nomes": 2,
+    "Agricultura": 1,
     "Meio ambiente e saneamento": 1,
     "Finanças e impostos": 1,
     "Assistência social": 1
@@ -1643,6 +1672,7 @@
    "partido": "PL",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/pr-sandrinho/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1685,6 +1715,7 @@
    "partido": "Novo",
    "cargo": "",
    "url": "https://camarateresopolis.com.br/vitinho/",
+   "foto": "",
    "mencoes": [
     {
      "noticia": 7568,
@@ -1709,6 +1740,7 @@
    ],
    "autoria": [],
    "temas": {
+    "Agricultura": 1,
     "Cultura, turismo e esporte": 1,
     "Educação": 1
    }
@@ -1727,14 +1759,16 @@
      "noticia": 9984,
      "data": "2026-04-28",
      "situacao": "aprovado",
-     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
+     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…",
+     "ementa": "Altera legislação para incluir trecho da Rua Gonçalo de Castro no Polo Gastronômico do Alto e disciplinar os horários de funcionamento dos estabelecimentos abrangidos"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-04-28",
+   "ementa": "Altera legislação para incluir trecho da Rua Gonçalo de Castro no Polo Gastronômico do Alto e disciplinar os horários de funcionamento dos estabelecimentos abrangidos",
    "temas": [
-    "Saúde",
-    "Assistência social"
+    "Obras e urbanismo",
+    "Cultura, turismo e esporte"
    ]
   },
   {
@@ -1751,14 +1785,15 @@
      "noticia": 9984,
      "data": "2026-04-28",
      "situacao": "aprovado",
-     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
+     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…",
+     "ementa": "Institui a Campanha Abril Verde no calendário oficial do município, voltada à conscientização sobre acidentes de trabalho e doenças ocupacionais"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-04-28",
+   "ementa": "Institui a Campanha Abril Verde no calendário oficial do município, voltada à conscientização sobre acidentes de trabalho e doenças ocupacionais",
    "temas": [
-    "Saúde",
-    "Assistência social"
+    "Saúde"
    ]
   },
   {
@@ -1775,11 +1810,13 @@
      "noticia": 9984,
      "data": "2026-04-28",
      "situacao": "aprovado",
-     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…"
+     "trecho": "Entre os projetos com votação destacada estão: o PL nº 074/2026, de autoria do presidente Luciano Santos, que garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município; o…",
+     "ementa": "Garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-04-28",
+   "ementa": "Garante prioridade na marcação de consultas médicas, psicológicas, exames e procedimentos de saúde para mães ou responsáveis legais de crianças atípicas no município",
    "temas": [
     "Saúde",
     "Assistência social"
@@ -1799,13 +1836,16 @@
      "noticia": 9826,
      "data": "2026-03-06",
      "situacao": "apresentado",
-     "trecho": "O vereador Diego Barbosa apresentou o PL nº 029/2026, que institui o Programa Municipal de Incentivo ao Cultivo Orgânico e à Produção Agroecológica, propondo políticas de estímulo à transição dos agricultores familiares para métodos mais sustentáveis, com fomento às compras…"
+     "trecho": "O vereador Diego Barbosa apresentou o PL nº 029/2026, que institui o Programa Municipal de Incentivo ao Cultivo Orgânico e à Produção Agroecológica, propondo políticas de estímulo à transição dos agricultores familiares para métodos mais sustentáveis, com fomento às compras…",
+     "ementa": "Institui o Programa Municipal de Incentivo ao Cultivo Orgânico e à Produção Agroecológica, propondo políticas de estímulo à transição dos agricultores familiares para métodos mais sustentáveis, com fomento às compras…"
     }
    ],
    "situacao": "apresentado",
    "data_situacao": "2026-03-06",
+   "ementa": "Institui o Programa Municipal de Incentivo ao Cultivo Orgânico e à Produção Agroecológica, propondo políticas de estímulo à transição dos agricultores familiares para métodos mais sustentáveis, com fomento às compras…",
    "temas": [
-    "Meio ambiente e saneamento"
+    "Meio ambiente e saneamento",
+    "Agricultura"
    ]
   },
   {
@@ -1822,17 +1862,20 @@
      "noticia": 9815,
      "data": "2026-03-03",
      "situacao": "apresentado",
-     "trecho": "No campo do turismo, o vereador Hygor Faraco apresentou o PL nº 022/2026, que institui o Programa “Conheça o Seu Município”, com o objetivo de incentivar o conhecimento do patrimônio histórico, cultural e ambiental de Teresópolis entre os próprios moradores."
+     "trecho": "No campo do turismo, o vereador Hygor Faraco apresentou o PL nº 022/2026, que institui o Programa “Conheça o Seu Município”, com o objetivo de incentivar o conhecimento do patrimônio histórico, cultural e ambiental de Teresópolis entre os próprios moradores.",
+     "ementa": "Institui o Programa “Conheça o Seu Município”, com o objetivo de incentivar o conhecimento do patrimônio histórico, cultural e ambiental de Teresópolis entre os próprios moradores"
     },
     {
      "noticia": 9863,
      "data": "2026-03-24",
      "situacao": "aprovado",
-     "trecho": "Hygor Faraco destacou a relevância da fisioterapia e da terapia ocupacional na vida dos pacientes: “A gente sabe a importância de cada fisioterapeuta e terapeuta ocupacional na vida dos pacientes que tratamos.” O vereador também aproveitou a ocasião para celebrar a aprovação,…"
+     "trecho": "Hygor Faraco destacou a relevância da fisioterapia e da terapia ocupacional na vida dos pacientes: “A gente sabe a importância de cada fisioterapeuta e terapeuta ocupacional na vida dos pacientes que tratamos.” O vereador também aproveitou a ocasião para celebrar a aprovação,…",
+     "ementa": null
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-03-24",
+   "ementa": "Institui o Programa “Conheça o Seu Município”, com o objetivo de incentivar o conhecimento do patrimônio histórico, cultural e ambiental de Teresópolis entre os próprios moradores",
    "temas": [
     "Meio ambiente e saneamento",
     "Cultura, turismo e esporte"
@@ -1852,12 +1895,16 @@
      "noticia": 9815,
      "data": "2026-03-03",
      "situacao": "apresentado",
-     "trecho": "Já o PL nº 018/2026 institui a realização de diagnóstico técnico da estrutura remuneratória dos servidores cujos vencimentos básicos sejam inferiores ao salário mínimo nacional, buscando corrigir distorções históricas que impedem que esses trabalhadores sintam o impacto real…"
+     "trecho": "Já o PL nº 018/2026 institui a realização de diagnóstico técnico da estrutura remuneratória dos servidores cujos vencimentos básicos sejam inferiores ao salário mínimo nacional, buscando corrigir distorções históricas que impedem que esses trabalhadores sintam o impacto real…",
+     "ementa": "Institui a realização de diagnóstico técnico da estrutura remuneratória dos servidores cujos vencimentos básicos sejam inferiores ao salário mínimo nacional, buscando corrigir distorções históricas que impedem que…"
     }
    ],
    "situacao": "apresentado",
    "data_situacao": "2026-03-03",
-   "temas": []
+   "ementa": "Institui a realização de diagnóstico técnico da estrutura remuneratória dos servidores cujos vencimentos básicos sejam inferiores ao salário mínimo nacional, buscando corrigir distorções históricas que impedem que…",
+   "temas": [
+    "Servidores e administração"
+   ]
   },
   {
    "chave": "PL 017/2026",
@@ -1873,12 +1920,16 @@
      "noticia": 9815,
      "data": "2026-03-03",
      "situacao": "apresentado",
-     "trecho": "O PL nº 017/2026 propõe a obrigatoriedade de instalação de placas informativas em eventos públicos que utilizem recursos públicos, garantindo transparência ao contribuinte."
+     "trecho": "O PL nº 017/2026 propõe a obrigatoriedade de instalação de placas informativas em eventos públicos que utilizem recursos públicos, garantindo transparência ao contribuinte.",
+     "ementa": "Propõe a obrigatoriedade de instalação de placas informativas em eventos públicos que utilizem recursos públicos, garantindo transparência ao contribuinte"
     }
    ],
    "situacao": "apresentado",
    "data_situacao": "2026-03-03",
-   "temas": []
+   "ementa": "Propõe a obrigatoriedade de instalação de placas informativas em eventos públicos que utilizem recursos públicos, garantindo transparência ao contribuinte",
+   "temas": [
+    "Servidores e administração"
+   ]
   },
   {
    "chave": "PL 010/2026",
@@ -1894,12 +1945,16 @@
      "noticia": 9815,
      "data": "2026-03-03",
      "situacao": "aprovado",
-     "trecho": "O principal destaque da sessão foi a aprovação, na Sessão Extraordinária, do Projeto de Lei nº 010/2026, de autoria do Poder Executivo, que concede revisão geral anual a todos os servidores públicos efetivos e comissionados do município, nos termos do artigo 37, inciso 10, da…"
+     "trecho": "O principal destaque da sessão foi a aprovação, na Sessão Extraordinária, do Projeto de Lei nº 010/2026, de autoria do Poder Executivo, que concede revisão geral anual a todos os servidores públicos efetivos e comissionados do município, nos termos do artigo 37, inciso 10, da…",
+     "ementa": "Concede revisão geral anual a todos os servidores públicos efetivos e comissionados do município, nos termos do artigo 37, inciso 10, da Constituição Federal"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-03-03",
-   "temas": []
+   "ementa": "Concede revisão geral anual a todos os servidores públicos efetivos e comissionados do município, nos termos do artigo 37, inciso 10, da Constituição Federal",
+   "temas": [
+    "Servidores e administração"
+   ]
   },
   {
    "chave": "PLC 007/2026",
@@ -1915,11 +1970,13 @@
      "noticia": 9984,
      "data": "2026-04-28",
      "situacao": "aprovado",
-     "trecho": "O Projeto de Lei Complementar nº 007/2026, de autoria do vereador Maurício Lopes, foi aprovado por unanimidade pelo plenário."
+     "trecho": "O Projeto de Lei Complementar nº 007/2026, de autoria do vereador Maurício Lopes, foi aprovado por unanimidade pelo plenário.",
+     "ementa": "Revoga integralmente a Lei Complementar Municipal nº 351/2025"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2026-04-28",
+   "ementa": "Revoga integralmente a Lei Complementar Municipal nº 351/2025",
    "temas": []
   },
   {
@@ -1934,11 +1991,13 @@
      "noticia": 9984,
      "data": "2026-04-28",
      "situacao": "revogada",
-     "trecho": "Em sessão ordinária e extraordinária realizada nesta terça-feira, o plenário revogou a Lei Complementar nº 351/2025 e suspendeu todos os seus efeitos jurídicos; vereadores também destacaram a inauguração do centro de radioterapia no Hospital São José"
+     "trecho": "Em sessão ordinária e extraordinária realizada nesta terça-feira, o plenário revogou a Lei Complementar nº 351/2025 e suspendeu todos os seus efeitos jurídicos; vereadores também destacaram a inauguração do centro de radioterapia no Hospital São José",
+     "ementa": null
     }
    ],
    "situacao": "revogada",
    "data_situacao": "2026-04-28",
+   "ementa": "",
    "temas": [
     "Saúde",
     "Cultura, turismo e esporte"
@@ -1958,12 +2017,15 @@
      "noticia": 9380,
      "data": "2025-08-14",
      "situacao": "aprovado",
-     "trecho": "A Câmara Municipal de Teresópolis aprovou por unanimidade, na manhã dessa quinta-feira, 14 de agosto, o Projeto de Lei nº 197/25, de autoria do vereador Marcos Rangel e da ex-vereadora Erika Marra, que institui os Polos Gastronômicos no município e estabelece regras claras para…"
+     "trecho": "A Câmara Municipal de Teresópolis aprovou por unanimidade, na manhã dessa quinta-feira, 14 de agosto, o Projeto de Lei nº 197/25, de autoria do vereador Marcos Rangel e da ex-vereadora Erika Marra, que institui os Polos Gastronômicos no município e estabelece regras claras para…",
+     "ementa": "Institui os Polos Gastronômicos no município e estabelece regras claras para música ao vivo, horários de funcionamento e fiscalização de bares e restaurantes"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2025-08-14",
+   "ementa": "Institui os Polos Gastronômicos no município e estabelece regras claras para música ao vivo, horários de funcionamento e fiscalização de bares e restaurantes",
    "temas": [
+    "Finanças e impostos",
     "Cultura, turismo e esporte"
    ]
   },
@@ -1979,17 +2041,20 @@
      "noticia": 7685,
      "data": "2025-01-17",
      "situacao": "citado",
-     "trecho": "Projeto de Lei nº 001/2025"
+     "trecho": "Projeto de Lei nº 001/2025",
+     "ementa": null
     },
     {
      "noticia": 8210,
      "data": "2025-01-21",
      "situacao": "citado",
-     "trecho": "3. Projeto de Lei nº 001/2025:"
+     "trecho": "3. Projeto de Lei nº 001/2025:",
+     "ementa": null
     }
    ],
    "situacao": "citado",
    "data_situacao": "2025-01-21",
+   "ementa": "",
    "temas": []
   },
   {
@@ -2004,13 +2069,15 @@
      "noticia": 9143,
      "data": "2025-06-25",
      "situacao": "aprovado",
-     "trecho": "A Câmara Municipal de Teresópolis aprovou, por unanimidade, durante sessão extraordinária realizada na manhã desta terça-feira (24/06), o Projeto de Lei Complementar nº 18/2025, que autoriza a Prefeitura a contrair um empréstimo de R$ 100 milhões junto ao Banco do Brasil."
+     "trecho": "A Câmara Municipal de Teresópolis aprovou, por unanimidade, durante sessão extraordinária realizada na manhã desta terça-feira (24/06), o Projeto de Lei Complementar nº 18/2025, que autoriza a Prefeitura a contrair um empréstimo de R$ 100 milhões junto ao Banco do Brasil.",
+     "ementa": "Autoriza a Prefeitura a contrair um empréstimo de R$ 100 milhões junto ao Banco do Brasil"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2025-06-25",
+   "ementa": "Autoriza a Prefeitura a contrair um empréstimo de R$ 100 milhões junto ao Banco do Brasil",
    "temas": [
-    "Cultura, turismo e esporte"
+    "Finanças e impostos"
    ]
   },
   {
@@ -2025,18 +2092,24 @@
      "noticia": 7685,
      "data": "2025-01-17",
      "situacao": "citado",
-     "trecho": "Projeto de Lei Complementar nº 002/2025"
+     "trecho": "Projeto de Lei Complementar nº 002/2025",
+     "ementa": null
     },
     {
      "noticia": 8210,
      "data": "2025-01-21",
      "situacao": "citado",
-     "trecho": "2. Projeto de Lei Complementar nº 002/2025:"
+     "trecho": "2. Projeto de Lei Complementar nº 002/2025:",
+     "ementa": "Criou cargos públicos de Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE)"
     }
    ],
    "situacao": "citado",
    "data_situacao": "2025-01-21",
-   "temas": []
+   "ementa": "Criou cargos públicos de Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE)",
+   "temas": [
+    "Saúde",
+    "Servidores e administração"
+   ]
   },
   {
    "chave": "PLC 001/2025",
@@ -2050,18 +2123,23 @@
      "noticia": 7685,
      "data": "2025-01-17",
      "situacao": "citado",
-     "trecho": "Projeto de Lei Complementar nº 001/2025"
+     "trecho": "Projeto de Lei Complementar nº 001/2025",
+     "ementa": null
     },
     {
      "noticia": 8210,
      "data": "2025-01-21",
      "situacao": "citado",
-     "trecho": "Projeto de Lei Complementar nº 001/2025:"
+     "trecho": "Projeto de Lei Complementar nº 001/2025:",
+     "ementa": "Alterou a estrutura administrativa da Prefeitura, com a criação da Secretaria de Limpeza Pública"
     }
    ],
    "situacao": "citado",
    "data_situacao": "2025-01-21",
-   "temas": []
+   "ementa": "Alterou a estrutura administrativa da Prefeitura, com a criação da Secretaria de Limpeza Pública",
+   "temas": [
+    "Servidores e administração"
+   ]
   },
   {
    "chave": "PR 001/2025",
@@ -2075,25 +2153,29 @@
      "noticia": 7685,
      "data": "2025-01-17",
      "situacao": "citado",
-     "trecho": "Projeto de Resolução nº 001/2025"
+     "trecho": "Projeto de Resolução nº 001/2025",
+     "ementa": null
     },
     {
      "noticia": 8210,
      "data": "2025-01-21",
      "situacao": "aprovado",
-     "trecho": "4. Projeto de Resolução nº 001/2025:"
+     "trecho": "4. Projeto de Resolução nº 001/2025:",
+     "ementa": "Alterou o artigo 151 do Regimento Interno da Câmara, ajustando normas regimentais"
     },
     {
      "noticia": 8708,
      "data": "2025-02-18",
      "situacao": "citado",
-     "trecho": "A sessão ocorreu já no novo horário, às 10h da manhã, conforme estabelecido pelo Projeto de Resolução nº 001/2025, que alterou o funcionamento do plenário para terças e quintas-feiras, às 10h."
+     "trecho": "A sessão ocorreu já no novo horário, às 10h da manhã, conforme estabelecido pelo Projeto de Resolução nº 001/2025, que alterou o funcionamento do plenário para terças e quintas-feiras, às 10h.",
+     "ementa": "Alterou o funcionamento do plenário para terças e quintas-feiras, às 10h"
     }
    ],
    "situacao": "aprovado",
    "data_situacao": "2025-01-21",
+   "ementa": "Alterou o artigo 151 do Regimento Interno da Câmara, ajustando normas regimentais",
    "temas": [
-    "Cultura, turismo e esporte"
+    "Servidores e administração"
    ]
   },
   {
@@ -2110,11 +2192,13 @@
      "noticia": 9106,
      "data": "2025-05-21",
      "situacao": "lido em plenário",
-     "trecho": "A Câmara Municipal de Teresópolis iniciou a sessão legislativa com a leitura do Projeto de Lei Complementar 009/2024, de autoria do executivo."
+     "trecho": "A Câmara Municipal de Teresópolis iniciou a sessão legislativa com a leitura do Projeto de Lei Complementar 009/2024, de autoria do executivo.",
+     "ementa": null
     }
    ],
    "situacao": "lido em plenário",
    "data_situacao": "2025-05-21",
+   "ementa": "",
    "temas": []
   },
   {
@@ -2129,11 +2213,13 @@
      "noticia": 9826,
      "data": "2026-03-06",
      "situacao": "lei citada",
-     "trecho": "O primeiro altera a planilha de Gratificação de Gestão Escolar (GGE) prevista na Lei Complementar nº 182/2014, adequando-a à estrutura atual das unidades educacionais municipais."
+     "trecho": "O primeiro altera a planilha de Gratificação de Gestão Escolar (GGE) prevista na Lei Complementar nº 182/2014, adequando-a à estrutura atual das unidades educacionais municipais.",
+     "ementa": null
     }
    ],
    "situacao": "lei citada",
    "data_situacao": "2026-03-06",
+   "ementa": "",
    "temas": [
     "Educação"
    ]
@@ -2154,6 +2240,7 @@
     "Meio ambiente e saneamento",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2216,6 +2303,7 @@
    "temas": [
     "Educação",
     "Assistência social",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Homenagens e nomes"
    ],
@@ -2247,6 +2335,7 @@
    "sessao": false,
    "temas": [
     "Saúde",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2266,6 +2355,7 @@
    "temas": [
     "Saúde",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [],
@@ -2282,6 +2372,8 @@
     "Transporte e trânsito",
     "Obras e urbanismo",
     "Meio ambiente e saneamento",
+    "Servidores e administração",
+    "Agricultura",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2313,6 +2405,8 @@
     "Obras e urbanismo",
     "Meio ambiente e saneamento",
     "Assistência social",
+    "Servidores e administração",
+    "Agricultura",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2351,6 +2445,7 @@
     "Meio ambiente e saneamento",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2379,6 +2474,8 @@
     "Animais",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
+    "Agricultura",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2417,6 +2514,7 @@
     "Saúde",
     "Transporte e trânsito",
     "Obras e urbanismo",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [],
@@ -2432,6 +2530,7 @@
     "Saúde",
     "Educação",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2480,6 +2579,7 @@
     "Educação",
     "Obras e urbanismo",
     "Meio ambiente e saneamento",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [],
@@ -2495,6 +2595,8 @@
     "Saúde",
     "Educação",
     "Obras e urbanismo",
+    "Servidores e administração",
+    "Agricultura",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2548,6 +2650,7 @@
     "Educação",
     "Transporte e trânsito",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2566,6 +2669,7 @@
    "sessao": true,
    "temas": [
     "Meio ambiente e saneamento",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2610,8 +2714,10 @@
    "temas": [
     "Educação",
     "Transporte e trânsito",
+    "Obras e urbanismo",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2635,6 +2741,7 @@
    "temas": [
     "Transporte e trânsito",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2661,6 +2768,7 @@
     "Educação",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2683,6 +2791,7 @@
    "temas": [
     "Meio ambiente e saneamento",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2700,6 +2809,7 @@
    "link": "https://camarateresopolis.com.br/camara-e-prefeitura-de-teresopolis-avancam-juntas-na-implementacao-da-lgpd/",
    "sessao": false,
    "temas": [
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2734,6 +2844,7 @@
     "Educação",
     "Obras e urbanismo",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Homenagens e nomes"
    ],
@@ -2792,6 +2903,7 @@
     "Obras e urbanismo",
     "Meio ambiente e saneamento",
     "Assistência social",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2824,6 +2936,7 @@
     "Obras e urbanismo",
     "Meio ambiente e saneamento",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2879,6 +2992,7 @@
     "Saúde",
     "Educação",
     "Assistência social",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Segurança e iluminação"
    ],
@@ -2902,6 +3016,7 @@
     "Saúde",
     "Assistência social",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -2934,6 +3049,7 @@
     "Meio ambiente e saneamento",
     "Assistência social",
     "Finanças e impostos",
+    "Agricultura",
     "Cultura, turismo e esporte",
     "Segurança e iluminação",
     "Homenagens e nomes"
@@ -2957,6 +3073,7 @@
    "sessao": true,
    "temas": [
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Homenagens e nomes"
    ],
@@ -2995,6 +3112,7 @@
     "Educação",
     "Obras e urbanismo",
     "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
@@ -3018,6 +3136,7 @@
    "sessao": true,
    "temas": [
     "Saúde",
+    "Servidores e administração",
     "Cultura, turismo e esporte",
     "Homenagens e nomes"
    ],
@@ -3039,6 +3158,8 @@
    "sessao": true,
    "temas": [
     "Educação",
+    "Finanças e impostos",
+    "Servidores e administração",
     "Cultura, turismo e esporte"
    ],
    "vereadores": [
