@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T10:08:20+00:00",
+ "gerado_em": "2026-11-06T13:06:38+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -230,9 +230,9 @@
     "Saúde": 3,
     "Assistência social": 1,
     "Finanças e impostos": 1,
+    "Segurança e iluminação": 1,
     "Meio ambiente e saneamento": 1,
     "Obras e urbanismo": 1,
-    "Segurança e iluminação": 1,
     "Transporte e trânsito": 1,
     "Servidores e administração": 1
    }
@@ -633,8 +633,8 @@
    "temas": {
     "Cultura, turismo e esporte": 2,
     "Saúde": 1,
-    "Transporte e trânsito": 1,
     "Educação": 1,
+    "Transporte e trânsito": 1,
     "Obras e urbanismo": 1
    }
   },
@@ -669,8 +669,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Assistência social": 1,
     "Obras e urbanismo": 1,
+    "Assistência social": 1,
     "Segurança e iluminação": 1
    }
   },
@@ -765,8 +765,8 @@
     "Segurança e iluminação": 2,
     "Educação": 2,
     "Obras e urbanismo": 2,
-    "Assistência social": 1,
     "Cultura, turismo e esporte": 1,
+    "Assistência social": 1,
     "Saúde": 1,
     "Transporte e trânsito": 1
    }
@@ -948,8 +948,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Meio ambiente e saneamento": 2,
     "Cultura, turismo e esporte": 2,
+    "Meio ambiente e saneamento": 2,
     "Agricultura": 1
    }
   },
@@ -1400,8 +1400,8 @@
     "Servidores e administração": 2,
     "Obras e urbanismo": 2,
     "Educação": 1,
-    "Homenagens e nomes": 1,
     "Saúde": 1,
+    "Homenagens e nomes": 1,
     "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
@@ -1477,8 +1477,8 @@
    ],
    "temas": {
     "Educação": 2,
-    "Meio ambiente e saneamento": 1,
     "Cultura, turismo e esporte": 1,
+    "Meio ambiente e saneamento": 1,
     "Finanças e impostos": 1
    }
   },
@@ -1741,8 +1741,8 @@
    "autoria": [],
    "temas": {
     "Cultura, turismo e esporte": 1,
-    "Agricultura": 1,
-    "Educação": 1
+    "Educação": 1,
+    "Agricultura": 1
    }
   }
  ],
@@ -3187,5 +3187,9 @@
    "proposicoes": []
   }
  ],
- "demo": false
+ "demo": false,
+ "perguntas": {
+  "prazo_dias": 20,
+  "perguntas": []
+ }
 }
