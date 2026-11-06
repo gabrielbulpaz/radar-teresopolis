@@ -19,6 +19,7 @@ import csv
 import html
 import json
 import re
+import sys
 import unicodedata
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -465,10 +466,14 @@ def exportar_abertos(dados, pasta: Path):
     (pasta / "radar.json").write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--entrada", default=RAIZ / "dados" / "brutos" / "noticias.json", type=Path)
     ap.add_argument("--vereadores", default=RAIZ / "coletor" / "vereadores.json", type=Path)
+    ap.add_argument("--perguntas", default=RAIZ / "coletor" / "perguntas.json", type=Path)
     ap.add_argument("--saida", default=RAIZ / "site" / "dados.js", type=Path)
     ap.add_argument("--demo", action="store_true", help="marca os dados como demonstração")
     args = ap.parse_args()
@@ -477,6 +482,11 @@ def main():
     cadastro = json.loads(args.vereadores.read_text(encoding="utf-8"))
     dados = processar(noticias, cadastro)
     dados["demo"] = args.demo
+    import perguntas as _perguntas  # noqa: E402 (mesmo diretório)
+    try:
+        dados["perguntas"] = _perguntas.carregar(args.perguntas, {v["slug"] for v in cadastro["vereadores"]})
+    except _perguntas.PerguntaInvalida as erro:
+        raise SystemExit(f"Erro em perguntas.json: {erro}")
 
     args.saida.parent.mkdir(parents=True, exist_ok=True)
     args.saida.write_text("window.DADOS = " + json.dumps(dados, ensure_ascii=False) + ";\n", encoding="utf-8")

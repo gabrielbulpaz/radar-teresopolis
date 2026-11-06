@@ -11,6 +11,9 @@ window.CONFIG = {
   // Para facilitar para o público, crie um Google Forms e cole o link aqui.
   erroUrl: "",
 
+  // Formulário do "Pergunte à Câmara" (Google Forms). Vazio = o botão de enviar pergunta fica escondido.
+  perguntaUrl: "",
+
   // E-mail de contato exibido na página "Como funciona". Deixe vazio para não exibir.
   contatoEmail: "",
 

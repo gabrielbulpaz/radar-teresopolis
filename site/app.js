@@ -3,11 +3,13 @@
 (() => {
   "use strict";
   const D = window.DADOS || {vereadores: [], proposicoes: [], noticias: []};
-  const CFG = Object.assign({siteUrl: "", repoUrl: "", erroUrl: "", contatoEmail: "", goatcounter: ""}, window.CONFIG || {});
+  const CFG = Object.assign({siteUrl: "", repoUrl: "", erroUrl: "", perguntaUrl: "", contatoEmail: "", goatcounter: ""}, window.CONFIG || {});
   const main = document.getElementById("conteudo");
   const noticia = Object.fromEntries(D.noticias.map(n => [n.id, n]));
   const vereador = Object.fromEntries(D.vereadores.map(v => [v.slug, v]));
   const prop = Object.fromEntries(D.proposicoes.map(p => [p.chave, p]));
+  const PERG = (D.perguntas && D.perguntas.perguntas) || [];
+  const PRAZO = (D.perguntas && D.perguntas.prazo_dias) || 20;
   const reduzir = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ================= utilidades ================= */
@@ -58,6 +60,9 @@
     "citado": ["Só citado", "A notícia menciona o projeto, mas não diz em que etapa ele está."],
     "revogada": ["Revogada", "A lei deixou de valer porque outra lei a cancelou."],
     "lei citada": ["Lei citada", "Uma lei existente mencionada na notícia, não um projeto em tramitação."],
+    "respondida": ["Respondida", "Pelo menos um gabinete respondeu. A resposta aparece abaixo da pergunta, como foi enviada."],
+    "aguardando resposta": ["Aguardando resposta", "A pergunta foi enviada aos gabinetes e ainda está dentro do prazo de resposta."],
+    "sem resposta no prazo": ["Sem resposta no prazo", "A pergunta foi enviada, o prazo passou e nenhum dos gabinetes consultados respondeu. Se a resposta chegar depois, ela é publicada."],
     "Executivo": ["Executivo", "A Prefeitura. Projetos “do Executivo” são enviados pelo prefeito."],
     "Mesa Diretora": ["Mesa Diretora", "Presidente, vice e secretários da Câmara, que administram a Casa."],
   };
@@ -241,6 +246,7 @@
       </div>
       ${blocoSeguidos}
       ${recentes.length ? `<h2 class="secao">Aprovados recentemente</h2><ul class="lista">${recentes.map(cartaoProp).join("")}</ul>` : ""}
+      ${PERG.length ? `<h2 class="secao">Pergunte à Câmara</h2><ul class="lista">${PERG.slice(0, 2).map(cartaoPergunta).join("")}</ul><a class="botao secundario" href="#/perguntas" style="margin-top:12px">Ver todas as perguntas</a>` : ""}
       <h2 class="secao">Atividade da Câmara</h2>
       <div class="cartao entra"><h3>Notícias por mês</h3><p class="leg">Toque em um mês para ver o que aconteceu.</p>${graficoMensal(contarPorMes(D.noticias))}</div>
       <div class="dupla" style="margin-top:14px">
@@ -316,11 +322,23 @@
         <h2 class="secao">Projetos de autoria</h2>
         ${props.length ? `<ul class="lista">${props.map(cartaoProp).join("")}</ul>`
           : `<div class="vazio">Nenhum projeto atribuído a este vereador nas notícias. Isso não quer dizer que ele não tenha apresentado projetos: muitas notícias não informam o autor.</div>`}
+        ${perguntasDoVereador(v)}
         <h2 class="secao">O que as notícias registram</h2>
         ${mencoes.length ? `<ol class="linha-tempo">${mencoes.map((m, i) => { const n = noticia[m.noticia]; return n ? `<li class="entra" style="--i:${Math.min(i, 10)}"><time>${data(n.data)}</time>
           <a class="tit" href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.titulo)}</a>${m.trechos.map(t => `<p class="trecho">${esc(t)}</p>`).join("")}</li>` : ""; }).join("")}</ol>`
           : `<div class="vazio">Nenhuma notícia cita este vereador ainda.</div>`}
       </section>`;
+  }
+
+  function perguntasDoVereador(v) {
+    const qs = PERG.filter(q => q.destinatarios.includes(v.slug));
+    if (!qs.length) return "";
+    const resp = qs.filter(q => q.respostas.some(r => r.de === v.slug)).length;
+    const sem = qs.filter(q => q.sem_resposta.includes(v.slug)).length;
+    return `<h2 class="secao">Perguntas do público</h2>
+      <p class="intro">Recebeu ${qs.length} ${qs.length === 1 ? "pergunta" : "perguntas"} pelo Pergunte à Câmara: respondeu ${resp}, ${sem} ${sem === 1 ? "ficou" : "ficaram"} sem resposta no prazo.</p>
+      <ul class="lista">${qs.slice(0, 3).map(cartaoPergunta).join("")}</ul>
+      ${qs.length > 3 ? `<a class="botao secundario" href="#/perguntas" style="margin-top:12px">Ver todas as perguntas</a>` : ""}`;
   }
 
   /* ================= COMPARAR ================= */
@@ -408,11 +426,62 @@
         <p class="sub entra" style="--i:1;margin-bottom:18px">${termo(p.tipo, esc(p.tipo_nome))}. Autoria: ${p.autores.length ? p.autores.map(a => GLOSSARIO[a] ? termo(a) : nomeAutor(a)).join(", ") : "não informada nas notícias"}.</p>
         ${(p.temas || []).length ? `<div class="temas-mini entra" style="--i:2;margin-bottom:18px">${p.temas.map(x => `<a href="#/projetos/tema/${slug(x)}">${esc(x)}</a>`).join("")}</div>` : ""}
         ${etapas(p)}
-        <div class="acoes entra" style="--i:3;margin:18px 0 0">${botoesAcao(textoZap, p.chave)}</div>
+        <div class="acoes entra" style="--i:3;margin:18px 0 0">${botoesAcao(textoZap, p.chave)}${botaoPerguntar("Perguntar sobre este projeto", "secundario")}</div>
+        ${PERG.filter(q => q.projeto === p.chave).length ? `<h2 class="secao">Perguntas sobre este projeto</h2><ul class="lista">${PERG.filter(q => q.projeto === p.chave).map(cartaoPergunta).join("")}</ul>` : ""}
         <h2 class="secao">O caminho nas notícias</h2>
         <ol class="linha-tempo">${p.mencoes.map((m, i) => { const n = noticia[m.noticia]; return `<li class="entra" style="--i:${i}"><time>${data(m.data)}</time> ${pilula(m.situacao)}
           <a class="tit" href="${esc(n?.link)}" target="_blank" rel="noopener">${esc(n?.titulo)}</a><p class="trecho">${esc(m.trecho)}</p></li>`; }).join("")}</ol>
       </section>`;
+  }
+
+  /* ================= PERGUNTE À CÂMARA ================= */
+  const nomesPara = q => q.para.length === 1 && q.para[0] === "todos" ? "todos os vereadores" : q.para.map(nomeAutor).join(", ");
+  const botaoPerguntar = (rotulo = "Mandar uma pergunta", classeBotao = "primario") => CFG.perguntaUrl
+    ? `<a class="botao ${classeBotao}" href="${esc(CFG.perguntaUrl)}" target="_blank" rel="noopener">${rotulo}</a>` : "";
+  function cartaoPergunta(q, i = 0) {
+    const resp = q.respostas.map(r => { const v = vereador[r.de]; return `<div class="resp">${v ? avatar(v) : `<span class="avatar" aria-hidden="true">${esc(iniciais(r.de))}</span>`}
+      <div><small>${v ? `<a href="#/vereador/${v.slug}">${esc(v.nome)}</a>` : esc(r.de)} respondeu em ${data(r.data)}</small><p>${esc(r.texto)}</p></div></div>`; }).join("");
+    const faltou = q.sem_resposta.length && q.respostas.length && q.para[0] !== "todos"
+      ? `<p class="leg" style="margin:10px 0 0">Não responderam no prazo: ${q.sem_resposta.map(nomeAutor).join(", ")}.</p>` : "";
+    const faltouTodos = q.para[0] === "todos" && q.sem_resposta.length && q.respostas.length
+      ? `<p class="leg" style="margin:10px 0 0">${q.respostas.length} de ${q.destinatarios.length} gabinetes responderam no prazo.</p>` : "";
+    return `<li class="perg entra" style="--i:${Math.min(i, 10)}" id="p-${esc(q.id)}">
+      <div class="cab">${pilula(q.situacao)}${q.tema ? `<a class="temas-mini" style="margin:0" href="#/projetos/tema/${slug(q.tema)}"><span style="font-size:13px;color:var(--mata);background:var(--mata-clara);padding:2px 9px;border-radius:999px">${esc(q.tema)}</span></a>` : ""}
+      ${q.projeto && prop[q.projeto] ? `<a class="codigo" href="#/projeto/${slugProp(q.projeto)}" style="cursor:pointer">${esc(q.projeto)}</a>` : ""}</div>
+      <blockquote>${esc(q.pergunta)}</blockquote>
+      <p class="para">Enviada a ${nomesPara(q)} em ${data(q.enviada_em)}. Prazo para resposta: ${data(q.prazo)}.</p>
+      ${resp}${faltou}${faltouTodos}</li>`;
+  }
+  function perguntasPagina() {
+    const cont = s => PERG.filter(q => q.situacao === s).length;
+    return `<section class="prosa">
+        <h2 class="nome-grande entra">Pergunte à Câmara</h2>
+        <p class="sub entra" style="--i:1">Moradores mandam perguntas. Todo mês, o Radar escolhe algumas, envia aos gabinetes e publica aqui as respostas, ou a falta delas.</p>
+        <div class="acoes entra" style="--i:2;margin-top:18px">${botaoPerguntar()}${CFG.perguntaUrl ? "" : `<span class="nota">O formulário de perguntas abre em breve.</span>`}</div>
+      </section>
+      <h2 class="secao">Como funciona</h2>
+      <ol class="como-perg">
+        <li class="entra"><b>Você pergunta</b><p>Pelo formulário, sobre um projeto, um tema da cidade ou a atuação de um vereador.</p></li>
+        <li class="entra" style="--i:1"><b>O Radar envia</b><p>No começo de cada mês, as perguntas escolhidas vão por e-mail para os gabinetes envolvidos.</p></li>
+        <li class="entra" style="--i:2"><b>A resposta é publicada</b><p>Tal como enviada pelo gabinete. Sem resposta em ${PRAZO} dias, a pergunta aparece como "sem resposta no prazo".</p></li>
+      </ol>
+      <h2 class="secao">Perguntas enviadas</h2>
+      ${PERG.length ? `<div class="ferramentas"><div class="chips" id="f-perg" role="group" aria-label="Filtrar perguntas">
+          <button type="button" class="chip" data-fperg="" aria-pressed="true">Todas <small>${PERG.length}</small></button>
+          ${["respondida", "aguardando resposta", "sem resposta no prazo"].filter(cont).map(s => `<button type="button" class="chip" data-fperg="${esc(s)}" aria-pressed="false">${esc(s)} <small>${cont(s)}</small></button>`).join("")}
+        </div></div><ul class="lista" id="lista-perg">${PERG.map(cartaoPergunta).join("")}</ul>`
+        : `<div class="vazio">As primeiras perguntas serão enviadas aos gabinetes no início do próximo mês e aparecem aqui.${CFG.perguntaUrl ? " Mande a sua pelo formulário." : ""}</div>`}
+      <h2 class="secao">Regras</h2>
+      <div class="cartao"><ul class="regras">
+        <li>Perguntas sobre a atuação pública: projetos, votações, temas da cidade.</li>
+        <li>Não publicamos ofensas, acusações sem prova nem perguntas sobre a vida pessoal de ninguém.</li>
+        <li>Perguntas parecidas são juntadas numa só. A escolha mensal prioriza os temas mais pedidos.</li>
+        <li>O nome de quem pergunta não é publicado.</li>
+        <li>Todos os gabinetes recebem o mesmo prazo e o mesmo tratamento.</li>
+        <li>Respostas são publicadas na íntegra, sem edição, exceto ofensas.</li>
+        <li>Resposta que chega depois do prazo também é publicada.</li>
+        <li>No período eleitoral de 2028, valem as regras extras da página Como funciona.</li>
+      </ul></div>`;
   }
 
   /* ================= SESSÕES ================= */
@@ -541,6 +610,12 @@
     }
     const pt = e.target.closest("[data-partido]");
     if (pt) { estado.partido = pt.dataset.partido; document.querySelectorAll("#f-partido .chip").forEach(c => c.setAttribute("aria-pressed", c === pt)); desenharVereadores(); return; }
+    const fp = e.target.closest("[data-fperg]");
+    if (fp) {
+      document.querySelectorAll("#f-perg .chip").forEach(c => c.setAttribute("aria-pressed", c === fp));
+      document.getElementById("lista-perg").innerHTML = PERG.filter(q => !fp.dataset.fperg || q.situacao === fp.dataset.fperg).map(cartaoPergunta).join("");
+      return;
+    }
     const tm = e.target.closest("[data-tema]");
     if (tm) { estado.tema = tm.dataset.tema; estado.mostrar = 20; desenharProjetos(); return; }
     if (e.target.closest("[data-acao='copiar']")) copiarLink();
@@ -580,7 +655,7 @@
   /* ================= rotas ================= */
   function rotear(rolar = true, transicao = true) {
     const [, rota = "", a, b] = location.hash.split("/");
-    const aba = {vereadores: "vereadores", vereador: "vereadores", comparar: "vereadores", projetos: "projetos", projeto: "projetos", sessoes: "sessoes", sobre: "sobre"}[rota] || "inicio";
+    const aba = {vereadores: "vereadores", vereador: "vereadores", comparar: "vereadores", projetos: "projetos", projeto: "projetos", sessoes: "sessoes", perguntas: "perguntas", sobre: "sobre"}[rota] || "inicio";
     document.querySelectorAll("[data-aba]").forEach(x => x.dataset.aba === aba ? x.setAttribute("aria-current", "page") : x.removeAttribute("aria-current"));
     pop.hidden = true;
     document.body.classList.toggle("interna", aba !== "inicio");
@@ -600,6 +675,7 @@
         if (D.noticias.length) { ["so-sessoes", "so-seguidos"].forEach(id => document.getElementById(id).addEventListener("change", () => desenharSessoes(mes))); desenharSessoes(mes); }
       }
       else if (rota === "sobre") main.innerHTML = sobre();
+      else if (rota === "perguntas") main.innerHTML = perguntasPagina();
       else main.innerHTML = inicio();
       desenharBarraComparar();
       animar();

@@ -1,0 +1,5 @@
+{
+  "_como_usar": "Perguntas do público escolhidas para envio aos gabinetes. Veja o passo 12 do guia e o topo de coletor/perguntas.py. 'para' aceita slugs de vereadores.json ou [\"todos\"]. Depois de editar, a atualização diária publica sozinha.",
+  "prazo_dias": 20,
+  "perguntas": []
+}

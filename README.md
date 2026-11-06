@@ -27,6 +27,10 @@ Edite `site/config.js`:
 - `contatoEmail`: e-mail exibido na página "Como funciona".
 - `goatcounter`: código de uma conta grátis do GoatCounter, para contar acessos sem cookies.
 
+- `perguntaUrl`: link do Google Forms do "Pergunte à Câmara".
+
+Perguntas publicadas: edite `coletor/perguntas.json` (formato explicado no topo de `coletor/perguntas.py`). Se o arquivo tiver erro, a atualização diária para com uma mensagem clara e o site continua na versão anterior.
+
 Fotos dos vereadores (opcional): veja `site/fotos/LEIAME.md`.
 
 Imagem de prévia de link (WhatsApp, redes): `site/og.png`. Se o endereço do site mudar, atualize as tags `og:` em `site/index.html` e `siteUrl` em `site/config.js`.
