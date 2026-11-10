@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-09T10:05:34+00:00",
+ "gerado_em": "2026-11-10T09:59:19+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -160,9 +160,9 @@
     "Saúde": 4,
     "Homenagens e nomes": 3,
     "Finanças e impostos": 2,
-    "Meio ambiente e saneamento": 1,
     "Obras e urbanismo": 1,
     "Educação": 1,
+    "Meio ambiente e saneamento": 1,
     "Transporte e trânsito": 1,
     "Assistência social": 1
    }
@@ -230,10 +230,10 @@
     "Saúde": 3,
     "Finanças e impostos": 1,
     "Assistência social": 1,
-    "Meio ambiente e saneamento": 1,
-    "Transporte e trânsito": 1,
     "Obras e urbanismo": 1,
     "Segurança e iluminação": 1,
+    "Meio ambiente e saneamento": 1,
+    "Transporte e trânsito": 1,
     "Servidores e administração": 1
    }
   },
@@ -633,8 +633,8 @@
    "temas": {
     "Cultura, turismo e esporte": 2,
     "Saúde": 1,
-    "Transporte e trânsito": 1,
     "Educação": 1,
+    "Transporte e trânsito": 1,
     "Obras e urbanismo": 1
    }
   },
@@ -669,9 +669,9 @@
    ],
    "autoria": [],
    "temas": {
+    "Obras e urbanismo": 1,
     "Segurança e iluminação": 1,
-    "Assistência social": 1,
-    "Obras e urbanismo": 1
+    "Assistência social": 1
    }
   },
   {
@@ -765,9 +765,9 @@
     "Segurança e iluminação": 2,
     "Educação": 2,
     "Obras e urbanismo": 2,
-    "Cultura, turismo e esporte": 1,
     "Saúde": 1,
     "Assistência social": 1,
+    "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
   },
@@ -912,8 +912,8 @@
     "Cultura, turismo e esporte": 2,
     "Servidores e administração": 1,
     "Educação": 1,
-    "Saúde": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Saúde": 1
    }
   },
   {
@@ -1528,8 +1528,8 @@
    "temas": {
     "Assistência social": 2,
     "Animais": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -1740,8 +1740,8 @@
    ],
    "autoria": [],
    "temas": {
-    "Cultura, turismo e esporte": 1,
     "Educação": 1,
+    "Cultura, turismo e esporte": 1,
     "Agricultura": 1
    }
   }
