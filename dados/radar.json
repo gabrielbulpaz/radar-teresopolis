@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-12T10:08:59+00:00",
+ "gerado_em": "2026-11-13T10:05:54+00:00",
  "fonte": "Notícias oficiais de camarateresopolis.com.br (API WordPress)",
  "fonte_vereadores": "https://camarateresopolis.com.br/vereadores-2025-2028/",
  "vereadores": [
@@ -160,8 +160,8 @@
     "Saúde": 4,
     "Homenagens e nomes": 3,
     "Finanças e impostos": 2,
-    "Obras e urbanismo": 1,
     "Meio ambiente e saneamento": 1,
+    "Obras e urbanismo": 1,
     "Educação": 1,
     "Transporte e trânsito": 1,
     "Assistência social": 1
@@ -228,12 +228,12 @@
    "autoria": [],
    "temas": {
     "Saúde": 3,
-    "Assistência social": 1,
     "Finanças e impostos": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1,
-    "Transporte e trânsito": 1,
+    "Assistência social": 1,
     "Meio ambiente e saneamento": 1,
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1,
+    "Transporte e trânsito": 1,
     "Servidores e administração": 1
    }
   },
@@ -377,8 +377,8 @@
     "Assistência social": 2,
     "Meio ambiente e saneamento": 1,
     "Servidores e administração": 1,
-    "Cultura, turismo e esporte": 1,
     "Agricultura": 1,
+    "Cultura, turismo e esporte": 1,
     "Saúde": 1
    }
   },
@@ -669,9 +669,9 @@
    ],
    "autoria": [],
    "temas": {
-    "Segurança e iluminação": 1,
     "Assistência social": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -765,8 +765,8 @@
     "Segurança e iluminação": 2,
     "Educação": 2,
     "Obras e urbanismo": 2,
-    "Saúde": 1,
     "Assistência social": 1,
+    "Saúde": 1,
     "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
@@ -912,8 +912,8 @@
     "Cultura, turismo e esporte": 2,
     "Servidores e administração": 1,
     "Educação": 1,
-    "Saúde": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Saúde": 1
    }
   },
   {
@@ -1400,8 +1400,8 @@
     "Servidores e administração": 2,
     "Obras e urbanismo": 2,
     "Educação": 1,
-    "Saúde": 1,
     "Homenagens e nomes": 1,
+    "Saúde": 1,
     "Cultura, turismo e esporte": 1,
     "Transporte e trânsito": 1
    }
@@ -1528,8 +1528,8 @@
    "temas": {
     "Assistência social": 2,
     "Animais": 1,
-    "Segurança e iluminação": 1,
-    "Obras e urbanismo": 1
+    "Obras e urbanismo": 1,
+    "Segurança e iluminação": 1
    }
   },
   {
@@ -1741,8 +1741,8 @@
    "autoria": [],
    "temas": {
     "Educação": 1,
-    "Cultura, turismo e esporte": 1,
-    "Agricultura": 1
+    "Agricultura": 1,
+    "Cultura, turismo e esporte": 1
    }
   }
  ],
